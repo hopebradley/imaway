@@ -73,7 +73,7 @@ class JobsController < ApplicationController
     end
 
     def job_params
-        params.permit(:title, :type, :salary, :start_time, :end_time, :employer_id, :caregiver_id)
+        params.permit(:title, :category, :salary, :start_time, :end_time, :employer_id, :caregiver_id)
     end
 
     # exception handling helper methods
