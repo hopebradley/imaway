@@ -19,6 +19,20 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = find_user
+        if user
+            user.update(user_params)
+            if user.valid?
+                render json: user, status: :created
+            else
+                render_unprocessable_entity_response(user)
+            end
+        else
+            render_not_found_response
+        end
+    end
+
     def destroy
         user = find_user
         if user
