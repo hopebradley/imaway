@@ -10,6 +10,25 @@ class UsersController < ApplicationController
         end
     end
 
+    def show
+        user = find_user
+        if user
+            render json: user, status: :created, include: :workouts
+        else
+            render_unauthorized_response
+        end
+    end
+
+    def destroy
+        user = find_user
+        if user
+            user.destroy
+            head :no_content
+        else
+            render_unauthorized_response
+        end
+    end
+
     private
 
     def find_user
