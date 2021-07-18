@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import LoginPage from './components/login/LoginPage';
-import HomePage from './components/HomePage';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
 import NavBar from './components/NavBar'
-import Profile from './components/Profile';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <div>
         <NavBar />
         <Route exact path="/" render={() => <HomePage />}/>
-        <Route exact path="/profile" render={() => <Profile />}/>
+        <Route exact path="/profile" render={() => <ProfilePage />}/>
       </div>
     </Router>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Profile = () => {
+const ProfilePage = () => {
 
     return (
         <div>
@@ -8,4 +8,4 @@ const Profile = () => {
         </div>
     )
 }
-export default Profile;
+export default ProfilePage;
