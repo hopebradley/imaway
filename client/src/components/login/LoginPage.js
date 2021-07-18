@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SignUpForm from './SignUpForm';
-import LoginForm from '/LoginForm';
+// import SignUpForm from './SignUpForm';
+// import LoginForm from './LoginForm';
 
 const LoginPage = () => {
 
