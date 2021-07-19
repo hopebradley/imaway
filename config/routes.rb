@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :employers
+  resources :caregivers
   resources :jobs
   resources :users
   post '/login', to: 'sessions#create'

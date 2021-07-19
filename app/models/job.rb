@@ -1,7 +1,7 @@
 class Job < ApplicationRecord
 
-    belongs_to :caregiver, class_name: "User"
-    belongs_to :employer, class_name: "User"
+    belongs_to :caregiver, optional: true
+    belongs_to :employer
 
 
     # validates :title, presence: true, length: {minimum: 3}

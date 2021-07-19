@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_155819) do
+ActiveRecord::Schema.define(version: 2021_07_19_184848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "caregivers", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "name"
+    t.string "bio"
+    t.string "img_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "employers", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "name"
+    t.string "bio"
+    t.string "img_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
@@ -21,21 +41,10 @@ ActiveRecord::Schema.define(version: 2021_07_19_155819) do
     t.string "salary"
     t.string "start_time"
     t.string "end_time"
-    t.string "caregiver_id"
-    t.string "employer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.string "name"
-    t.string "type"
-    t.string "bio"
-    t.string "img_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "caregiver_id"
+    t.integer "employer_id"
   end
 
 end
