@@ -2,27 +2,22 @@ class JobsController < ApplicationController
 
     def index
         jobs = Job.all 
-        render json: jobs, include: :user
+        render json: jobs, include: :employer
     end
 
     def show
-        user = find_user
-        if user
-            job = Job.find_by(id: params[:id])
-            if job
-                render json: job, status: :created
-            else
-                render_not_found_response
-            end
+        job = Job.find_by(id: params[:id])
+        if job
+            render json: job, status: :created
         else
-            render_unauthorized_response
+            render_not_found_response
         end
     end
 
     def create
-        user = find_user
-        if user
-            job = user.jobs.create(job_params)
+        employer = find_employer
+        if employer
+            job = employer.jobs.create(job_params)
             if job.valid?
                 render json: job, status: :created
             else
@@ -34,22 +29,27 @@ class JobsController < ApplicationController
     end
 
     def update
-        job = find_job
-        if job
-            job.update(job_params)
-            if job.valid?
-                render json: job, status: :created
+        employer = find_employer
+        if employer
+            job = find_job
+            if job
+                job.update(job_params)
+                if job.valid?
+                    render json: job, status: :created
+                else
+                    render_unprocessable_entity_response(job)
+                end
             else
-                render_unprocessable_entity_response(job)
+                render_not_found_response
             end
         else
-            render_not_found_response
+            render_unauthorized_response
         end
     end
 
     def destroy
-        user = find_user
-        if user
+        employer = find_employer
+        if employer
             job = find_job
             if job 
                 job.destroy
@@ -64,8 +64,8 @@ class JobsController < ApplicationController
 
     private
 
-    def find_user
-        User.find_by(id: session[:user_id])
+    def find_employer
+        Employer.find_by(id: session[:user_id])
     end
 
     def find_job
