@@ -46,7 +46,7 @@ function App() {
     });
   }
 
-  if (!loggedIn) return <LoginPage setUser={setUser} setLoggedIn={setLoggedIn}/>;
+  if (!loggedIn) return <LoginPage setUser={setUser} setLoggedIn={setLoggedIn} setUserType={setUserType}/>;
 
   return (
     <Router>
