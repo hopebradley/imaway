@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import SignUpForm from './SignUpForm';
 // import LoginForm from './LoginForm';
 
-const LoginPage = () => {
+const LoginPage = ( { setUser, setLoggedIn }) => {
 
     return (
         <div>
