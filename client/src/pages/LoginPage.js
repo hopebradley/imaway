@@ -9,6 +9,7 @@ const LoginPage = ( { setUser, setLoggedIn, setUserType }) => {
 
     const [ caregiverLogin, setCaregiverLogin ] = useState(false);
     const [ employerLogin, setEmployerLogin ] = useState(false);
+    const [ hasAccount, setHasAccount ] = useState(true);
 
     const [dataInvalid, setDataInvalid] = useState(false);
     const [errors, setErrors] = useState([]);
@@ -51,12 +52,37 @@ const LoginPage = ( { setUser, setLoggedIn, setUserType }) => {
         }
     }
 
+    function showLoginOrSignup() {
+        if (hasAccount) {
+            return (
+                <div>
+                    {caregiverLogin ? <LoginForm status="caregiver"/> : <button id="caregiver"onClick={handleClick}>Login As Caregiver</button>}
+                    {employerLogin ? <LoginForm status="employer"/> : <button id="employer"onClick={handleClick}>Login As Employer</button>}
+                    <div className="question">
+                        <p>Don't have an account?</p>
+                        <button onClick={()=> setHasAccount(false)}>Sign Up</button>
+                    </div>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    <SignUpForm setUser={setUser} setLoggedIn={setLoggedIn}/>
+                    <div className="question">
+                        <p>Already have an account?</p>
+                        <button onClick={()=> setHasAccount(true)}>Login</button>
+                    </div>
+                </div>
+            )
+        }
+    }
+
 
 
     return (
         <div>
-            { !caregiverLogin ? <button id="caregiver"onClick={handleClick}>Login As Caregiver</button> : <LoginForm status="caregiver"/> }
-            { !employerLogin ? <button id="employer" onClick={handleClick}>Login As Employer</button> : <LoginForm status="employer"/> }
+            {showLoginOrSignup()}
         </div>
     )
 }
