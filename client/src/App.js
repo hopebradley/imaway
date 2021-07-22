@@ -9,7 +9,6 @@ import ProfilePage from './pages/ProfilePage';
 function App() {
 
   const [ loggedIn, setLoggedIn ] = useState(false);
-  const [ userType, setUserType ] = useState("");
   const [ user, setUser ] = useState({});
 
   useEffect(() => {
@@ -23,7 +22,6 @@ function App() {
       if (resp.ok) {
         resp.json().then(user => {
           setUser(user);
-          setUserType("employer");
           setLoggedIn(true);
         });
       }
@@ -33,7 +31,6 @@ function App() {
           if (resp.ok) {
             resp.json().then(user => {
               setUser(user);
-              setUserType("employer");
               setLoggedIn(true);
             });
           }
@@ -46,7 +43,7 @@ function App() {
     });
   }
 
-  if (!loggedIn) return <LoginPage setUser={setUser} setLoggedIn={setLoggedIn} setUserType={setUserType}/>;
+  if (!loggedIn) return <LoginPage setUser={setUser} setLoggedIn={setLoggedIn}/>;
 
   return (
     <Router>

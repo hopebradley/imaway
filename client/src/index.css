@@ -6,9 +6,63 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-color:rgb(255, 243, 240);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* NAVBAR STYLING */
+.navbar {
+  padding: 3%;
+  background-color: rgb(238, 163, 135);
+  color: black;
+}
+.main-nav {
+  margin-left: 0px;
+  font-size: xx-large;
+  font-weight: 700;
+  font-style: italic;
+  color: white
+}
+.nav-item {
+  font-size: small;
+  font-weight: 700;
+  padding: 1px;
+  margin:3%;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  border-radius: 20px;
+}
+.active-item {
+
+}
+
+/* LOGIN STYLING */
+.login-page {
+  font-size: large;
+  text-align: center;
+  width: 55%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 2%;
+  padding-bottom: 8%;
+  padding-top: 3%;
+  background-color: rgb(227, 173, 157);
+  border-radius: 20px;
+}
+.logout-question {
+  font-size: large;
+  background-color:rgb(130, 196, 220);
+  width: 50%;
+  margin: auto;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 20px;
+}
+
+

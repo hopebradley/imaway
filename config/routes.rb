@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :employers
   resources :caregivers
   resources :jobs
-  post '/login', to: 'sessions#create'
+  post '/caregiver-login', to: 'sessions#create_caregiver_session'
+  post '/employer-login', to: 'sessions#create_employer_session'
   delete '/logout', to: 'sessions#destroy'
   get '/employer', to: 'employers#show'
   get '/caregiver', to: 'caregivers#show'

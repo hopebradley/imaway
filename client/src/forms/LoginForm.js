@@ -7,15 +7,11 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
     const [dataInvalid, setDataInvalid] = useState(false);
     const [errors, setErrors] = useState([]);
 
-    const [ selectedLoginType, setSelectedLoginType ] = useState("caregiver");
+    const [ selectedUserType, setSelectedUserType ] = useState("caregiver");
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(e.target)
-        console.log(username)
-        console.log(password)
-        console.log(selectedLoginType)
-        fetch("/login", {
+        fetch("/"+selectedUserType+"-login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -42,7 +38,7 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
     }
 
     function handleButtonChange(e) {
-        setSelectedLoginType(e.target.value)
+        setSelectedUserType(e.target.value)
     }
 
 
@@ -73,7 +69,7 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
                     <input 
                         type="radio" 
                         value="caregiver" 
-                        checked={selectedLoginType == "caregiver"} 
+                        checked={selectedUserType === "caregiver"} 
                         className="select-login-type"
                         onChange={handleButtonChange}>
                     </input>
@@ -86,7 +82,7 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
                     <input 
                         type="radio" 
                         value="employer" 
-                        checked={selectedLoginType == "employer"} 
+                        checked={selectedUserType === "employer"} 
                         className="select-login-type"
                         onChange={handleButtonChange}>
                     </input>

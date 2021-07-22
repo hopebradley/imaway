@@ -1,16 +1,22 @@
 class SessionsController < ApplicationController
 
-    def create
-        user = Employer.find_by(username: params[:username])
-        if !user
-            user = Caregiver.find_by(username: params[:username])
-        end
-        
+    def create_caregiver_session
+        user = Caregiver.find_by(username: params[:username])
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
             render json: user
         else
-            render json: { errors: ["Incorrect username or password."]}, status: :unauthorized
+            render json: { errors: ["Incorrect username or password, or wrong role checked."]}, status: :unauthorized
+        end
+    end
+
+    def create_employer_session
+        user = Employer.find_by(username: params[:username])
+        if user&.authenticate(params[:password])
+            session[:user_id] = user.id
+            render json: user
+        else
+            render json: { errors: ["Incorrect username or password, or wrong role checked."]}, status: :unauthorized
         end
     end
 

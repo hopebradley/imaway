@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, Link } from "react-router-dom";
 
 const NavBar = ({ loggedIn, setLoggedIn, setUser, user }) => {
@@ -16,9 +16,9 @@ const NavBar = ({ loggedIn, setLoggedIn, setUser, user }) => {
 
   return (
     <div className="navbar">
-      <NavLink className="nav-item" activeClassName="active-item" id="main-nav" to="/"exact>ImAway</NavLink>
-      <NavLink className="nav-item" activeClassName="active-item" to="/community">Calendar</NavLink>
-      <NavLink className="nav-item" activeClassName="active-item" to="/new-workout">Contacts</NavLink>
+      <NavLink className="nav-item main-nav" activeClassName="active-item" to="/"exact>ImAway</NavLink>
+      <NavLink className="nav-item" activeClassName="active-item" to="/calendar">Calendar</NavLink>
+      <NavLink className="nav-item" activeClassName="active-item" to="/contacts">Contacts</NavLink>
       <NavLink className="nav-item" activeClassName="active-item" to="/profile">Profile</NavLink>
       <div className="logout">
         <p>not {user.name}?</p>
