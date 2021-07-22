@@ -20,7 +20,7 @@ const NavBar = ({ loggedIn, setLoggedIn, setUser, user }) => {
       <NavLink className="nav-item" activeClassName="active-item" to="/calendar">Calendar</NavLink>
       <NavLink className="nav-item" activeClassName="active-item" to="/contacts">Contacts</NavLink>
       <NavLink className="nav-item" activeClassName="active-item" to="/profile">Profile</NavLink>
-      <div className="logout">
+      <div className="logout-question">
         <p>not {user.name}?</p>
         <Link to="/"><button onClick={handleLogoutClick}>logout</button></Link>
       </div>

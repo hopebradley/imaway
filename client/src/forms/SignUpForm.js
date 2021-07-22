@@ -63,7 +63,7 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <h2>Create an ImAway Account</h2>
-                <p>What will you be using ImAway for?</p>
+                <p>I want to be a:</p>
                 <label>
                     <input 
                         type="radio" 
@@ -72,9 +72,8 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
                         className="select-login-type"
                         onChange={handleButtonChange}>
                     </input>
-                    I want to work (caregiver)
+                    Caregiver
                 </label>
-                <br></br>
                 <label>
                     <input 
                         type="radio" 
@@ -83,7 +82,7 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
                         className="select-login-type"
                         onChange={handleButtonChange}>
                     </input>
-                    I need care (employer)
+                    Employer
                 </label>
                 <p>Name:</p>
                 <input 
@@ -135,7 +134,7 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
                 </input>
                 <br></br>
                 <br></br>
-                <input type="submit"></input>
+                <input type="submit" value="SIGN UP"></input>
                 {dataInvalid ? <div className="errors"><h3>Uh oh!</h3>{errors.map((e) => <p>-{e}</p> )}</div> : <p></p>}
             </form>
             

@@ -14,8 +14,8 @@ const LoginPage = ( { setUser, setLoggedIn }) => {
                 <div className="login-page">
                     <LoginForm setUser={setUser} setLoggedIn={setLoggedIn}/>
                     <div className="question">
-                        <p>Don't have an account?</p>
-                        <button onClick={()=> setHasAccount(false)}>Sign Up</button>
+                        <p>New?</p>
+                        <button onClick={()=> setHasAccount(false)}>CREATE AN ACCOUNT</button>
                     </div>
                 </div>
             )
@@ -26,7 +26,7 @@ const LoginPage = ( { setUser, setLoggedIn }) => {
                     <SignUpForm setUser={setUser} setLoggedIn={setLoggedIn}/>
                     <div className="question">
                         <p>Already have an account?</p>
-                        <button onClick={()=> setHasAccount(true)}>Login</button>
+                        <button onClick={()=> setHasAccount(true)}>LOGIN</button>
                     </div>
                 </div>
             )

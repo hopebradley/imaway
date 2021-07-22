@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Red Hat Text', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -14,18 +12,37 @@ code {
     monospace;
 }
 
+/* GENERAL */
+div {
+  border-radius: 18px;
+}
+button,input[type=submit] {
+  border-radius: 18px;
+  border-style: none;
+  padding: 2%;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  background-color: rgb(179, 132, 132);
+}
+input[type=submit] {
+  background-color:rgb(255, 243, 240);
+  color: rgb(179, 132, 132);
+}
+input[type=text] {
+  width: 200px;
+  border-style: none;
+  border-radius: 10px;
+}
+label {
+  padding: 2%;
+}
+
 /* NAVBAR STYLING */
 .navbar {
   padding: 3%;
   background-color: rgb(238, 163, 135);
   color: black;
-}
-.main-nav {
-  margin-left: 0px;
-  font-size: xx-large;
-  font-weight: 700;
-  font-style: italic;
-  color: white
 }
 .nav-item {
   font-size: small;
@@ -34,7 +51,13 @@ code {
   margin:3%;
   text-decoration: none;
   color: rgb(255, 255, 255);
-  border-radius: 20px;
+}
+.main-nav {
+  margin-left: 0px;
+  font-size: xx-large;
+  font-weight: 700;
+  font-style: italic;
+  color: white
 }
 .active-item {
 
@@ -52,17 +75,19 @@ code {
   padding-bottom: 8%;
   padding-top: 3%;
   background-color: rgb(227, 173, 157);
-  border-radius: 20px;
 }
 .logout-question {
-  font-size: large;
-  background-color:rgb(130, 196, 220);
-  width: 50%;
-  margin: auto;
-  padding: 1%;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 20px;
+  float: right;
+  font-size: small;
+  margin-top: 1px
+}
+
+/* IMAGES */
+.profile-image {
+  width:100px;
+  height: 100px;;
+  border-radius: 50%;
+
 }
 
 

@@ -63,9 +63,8 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
                     onChange={(e) => setPassword(e.target.value)}>
                 </input>
 
-                <h3>Login as a:</h3>
+                <h3>I am a:</h3>
                 <label>
-                    Caregiver
                     <input 
                         type="radio" 
                         value="caregiver" 
@@ -73,12 +72,9 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
                         className="select-login-type"
                         onChange={handleButtonChange}>
                     </input>
+                    Caregiver
                 </label>
-                <br></br>
-                or
-                <br></br>
                 <label>
-                    Employer
                     <input 
                         type="radio" 
                         value="employer" 
@@ -86,10 +82,11 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
                         className="select-login-type"
                         onChange={handleButtonChange}>
                     </input>
+                    Employer
                 </label>
                 <br></br>
                 <br></br>
-                <input type="submit" value="Login"></input>
+                <input type="submit" value="LOGIN"></input>
                 {dataInvalid ? <div className="errors"><h3>Uh oh!</h3>{errors.map((e) => <p>{e}</p> )}</div> : <p></p>}
             </form>
         </div>

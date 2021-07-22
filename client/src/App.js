@@ -50,7 +50,7 @@ function App() {
       <div>
         <NavBar loggedIn={loggedIn} setUser={setUser} setLoggedIn={setLoggedIn} user={user}/>
         <Route exact path="/" render={() => <HomePage />}/>
-        <Route exact path="/profile" render={() => <ProfilePage />}/>
+        <Route exact path="/profile" render={() => <ProfilePage user={user}/>}/>
       </div>
     </Router>
   );
