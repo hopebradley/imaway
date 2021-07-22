@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const LoginForm = ( { status, setUser, setLoggedIn }) => {
+const LoginForm = ( { setUser, setLoggedIn }) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -9,12 +9,13 @@ const LoginForm = ( { status, setUser, setLoggedIn }) => {
 
     const [ selectedLoginType, setSelectedLoginType ] = useState("caregiver");
 
-    status = status[0].toUpperCase() + status.slice(1);
-
     function handleSubmit(e) {
-        console.log(e.target)
         e.preventDefault();
-        fetch("/"+selectedLoginType+"s", {
+        console.log(e.target)
+        console.log(username)
+        console.log(password)
+        console.log(selectedLoginType)
+        fetch("/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,6 +31,7 @@ const LoginForm = ( { status, setUser, setLoggedIn }) => {
                setLoggedIn(false);
                setDataInvalid(true);
                setErrors(data.errors);
+               console.log(data);
             } 
             else {
                 setUser(data);
@@ -47,7 +49,7 @@ const LoginForm = ( { status, setUser, setLoggedIn }) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <h2>ImAway {status} Login</h2>
+                <h2>Log Into ImAway</h2>
                 <h3>username:</h3>
                 <input 
                     id="username"

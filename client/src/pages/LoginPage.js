@@ -56,8 +56,7 @@ const LoginPage = ( { setUser, setLoggedIn, setUserType }) => {
         if (hasAccount) {
             return (
                 <div>
-                    {caregiverLogin ? <LoginForm status="caregiver"/> : <button id="caregiver"onClick={handleClick}>Login As Caregiver</button>}
-                    {employerLogin ? <LoginForm status="employer"/> : <button id="employer"onClick={handleClick}>Login As Employer</button>}
+                    <LoginForm setUser={setUser} setLoggedIn={setLoggedIn}/>
                     <div className="question">
                         <p>Don't have an account?</p>
                         <button onClick={()=> setHasAccount(false)}>Sign Up</button>
