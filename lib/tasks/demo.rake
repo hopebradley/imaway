@@ -6,10 +6,10 @@ namespace :demo do
     Caregiver.destroy_all
     Employer.destroy_all
 
-    user1 = Employer.create(username: "hope", password: "1", password_confirmation: "1", name: "hope bradley", bio: "hi", img_url: "default_profile_img.jpeg")
-    # user2 = Employer.create()
-    # user3 = Caregiver.create()
-    # user4 = Caregiver.create()
+    user1 = Employer.create(username: "hope", password: "1", password_confirmation: "1", name: "Hope Bradley", bio: "hi", img_url: "default_profile_img.jpeg")
+    user2 = Employer.create(username: "ben", password: "1", password_confirmation: "1", name: "Ben Bradley", bio: "hi", img_url: "default_profile_img.jpeg")
+    user3 = Caregiver.create(username: "tim", password: "1", password_confirmation: "1", name: "Time Bradley", bio: "hi", img_url: "default_profile_img.jpeg")
+    user4 = Caregiver.create(username: "mercy", password: "1", password_confirmation: "1", name: "Mercy Vigil", bio: "hi", img_url: "default_profile_img.jpeg")
 
     # create diff user types with passwords
     # create jobs etc and asisgn to employers or caregtivers

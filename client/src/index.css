@@ -3,7 +3,6 @@ body {
   font-family: 'Red Hat Text', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   background-color:rgb(255, 243, 240);
 }
 
@@ -43,6 +42,7 @@ label {
   padding: 3%;
   background-color: rgb(238, 163, 135);
   color: black;
+  border-radius: 0;
 }
 .nav-item {
   font-size: small;
@@ -80,6 +80,19 @@ label {
   float: right;
   font-size: small;
   margin-top: 1px
+}
+
+/* PROFILE STYLING */
+
+.profile-info {
+  float: left;
+  margin: 2%;
+}
+
+.profile-contacts {
+  float: right;
+  margin-top: 0px;
+  margin: 3%;
 }
 
 /* IMAGES */
