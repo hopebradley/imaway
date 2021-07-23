@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import NavBar from './components/NavBar'
 import ProfilePage from './pages/ProfilePage';
+import CalendarPage from './pages/CalendarPage';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
       <div>
         <NavBar loggedIn={loggedIn} setUser={setUser} setLoggedIn={setLoggedIn} user={user}/>
         <Route exact path="/" render={() => <HomePage />}/>
+        <Route exact path="/calendar" render={() => <CalendarPage />}/>
         <Route exact path="/profile" render={() => <ProfilePage user={user}/>}/>
       </div>
     </Router>

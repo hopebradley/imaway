@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Red Hat Text', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color:rgb(255, 243, 240);
@@ -18,7 +18,7 @@ div {
 button,input[type=submit] {
   border-radius: 18px;
   border-style: none;
-  padding: 2%;
+  padding: 3%;
   color: white;
   font-weight: 700;
   font-size: 16px;
@@ -54,9 +54,8 @@ label {
 }
 .main-nav {
   margin-left: 0px;
-  font-size: xx-large;
-  font-weight: 700;
-  font-style: italic;
+  font-size: 200%;
+  font-weight: 900;
   color: white
 }
 .active-item {
@@ -85,14 +84,26 @@ label {
 /* PROFILE STYLING */
 
 .profile-info {
+  font-size: larger;
   float: left;
-  margin: 2%;
+  margin: 5%;
+  width: 30%;
+  background-color: white;
+  padding: 3%;
+  border-width: 3px;
+  border-color: rgb(238, 163, 135);;
+  border-style:solid;
 }
 
 .profile-contacts {
   float: right;
-  margin-top: 0px;
-  margin: 3%;
+  width: 30%;
+  margin: 5%;
+  padding: 3%;
+  background-color:white;
+  border-width: 3px;
+  border-color: rgb(238, 163, 135);;
+  border-style:solid;
 }
 
 /* IMAGES */

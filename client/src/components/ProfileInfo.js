@@ -17,10 +17,11 @@ const ProfileInfo = ( { user }) => {
         else {
             return (
                 <div>
-                    <h1>{user.name}'s Profile</h1>
                     <img src={user.img_url} className="profile-image" alt="profile"></img>
+                    <h1>{user.name}</h1>
+                    <h2>{user.constructor.name}</h2>
                     <h3>@{user.username}</h3>
-                    <h3>{user.bio}</h3>
+                    <p>{user.bio}</p>
                     <br></br>
                     <button onClick={() => setEditingProfile(true)}>EDIT PROFILE</button>
                 </div>

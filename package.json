@@ -11,6 +11,9 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
-    "react-router-dom": "^5.2.0"
+    "react-datepicker": "^4.1.1",
+    "react-day-picker": "^7.4.10",
+    "react-router-dom": "^5.2.0",
+    "react-time-picker": "^4.3.0"
   }
 }
