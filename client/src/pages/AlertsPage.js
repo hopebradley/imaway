@@ -1,12 +1,12 @@
 import React from 'react';
 import Alert from '../components/Alert';
 
-const AlertsPage = ( { user, alerts }) => {
+const AlertsPage = ( { user, alerts, loadData }) => {
 
     function displayAlerts() {
         // const myAlerts = alerts.select(a => a.employer.id === user.id);
         // console.log(myAlerts);
-        return alerts.map(a => <Alert alert={a}/>)
+        return alerts.map(a => <Alert alert={a} loadData={loadData}/>)
     }
 
     return (

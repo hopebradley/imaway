@@ -16,10 +16,14 @@ function App() {
   const [ alerts, setAlerts ] = useState([]);
 
   useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = () => {
     loadUser();
     loadJobs();
     loadAlerts();
-  }, []);
+  }
 
   // CHECKS WHO IS LOGGED IN
   const loadUser = () => {
@@ -69,8 +73,8 @@ function App() {
       <div>
         <NavBar loggedIn={loggedIn} setUser={setUser} setLoggedIn={setLoggedIn} user={user}/>
         <Route exact path="/" render={() => <HomePage user={user}  />}/>
-        <Route exact path="/calendar" render={() => <CalendarPage jobs={jobs} user={user} loadJobs={loadJobs} loadAlerts={loadAlerts}/>}/>
-        <Route exact path="/alerts" render={() => <AlertsPage jobs={jobs} user={user} loadJobs={loadJobs} alerts={alerts}/>}/>
+        <Route exact path="/calendar" render={() => <CalendarPage jobs={jobs} user={user} loadData={loadData}/>}/>
+        <Route exact path="/alerts" render={() => <AlertsPage jobs={jobs} user={user} loadData={loadData} alerts={alerts}/>}/>
         <Route exact path="/profile" render={() => <ProfilePage user={user} jobs={jobs} />}/>
       </div>
     </Router>

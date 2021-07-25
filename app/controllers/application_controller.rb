@@ -13,6 +13,10 @@ class ApplicationController < ActionController::API
     Caregiver.find_by(id: session[:user_id])
   end
 
+  def find_alert
+    Alert.find_by(id: params[:id])
+  end
+
   def render_unprocessable_entity_response(obj)
     render json: { errors: obj.errors.full_messages }, status: :unprocessable_entity
   end
@@ -24,5 +28,5 @@ class ApplicationController < ActionController::API
   def render_not_found_response
     render json: { errors: ["Not found"] }, status: :not_found
   end
-  
+
 end

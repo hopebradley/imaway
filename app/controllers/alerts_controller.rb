@@ -6,7 +6,7 @@ class AlertsController < ApplicationController
     end
 
     def show
-        alert = Alert.find_by(id: params[:id])
+        alert = find_alert
         if alert
             render json: alert, status: :created
         else
@@ -15,10 +15,30 @@ class AlertsController < ApplicationController
     end
 
     def create
-        job = Job.find_by(id: params[:id])
+        job = Job.find_by(id: params[:job_id])
         if job
             alert = Alert.create(alert_params)
             render json: alert
+        else
+            render_not_found_response
+        end
+    end
+
+    def update
+        alert = find_alert
+        if alert
+            alert.update(alert_params)
+            render json: alert
+        else
+            render_not_found_response
+        end
+    end
+
+    def destroy
+        alert = find_alert
+        if alert
+            alert.destroy
+            head :no_content
         else
             render_not_found_response
         end
