@@ -1,10 +1,7 @@
 class DeleteUsersTable < ActiveRecord::Migration[6.1]
-  def up
+  def change
     drop_table :users
     drop_table :workouts
   end
 
-  def down
-    raise ActiveRecord::IrreversibleMigration
-  end
 end

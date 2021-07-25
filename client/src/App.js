@@ -11,36 +11,42 @@ function App() {
 
   const [ loggedIn, setLoggedIn ] = useState(false);
   const [ user, setUser ] = useState({});
+  const [ jobs, setJobs ] = useState([]);
 
   useEffect(() => {
     loadUser();
+    loadJobs();
   }, []);
 
-  // CHECKS WHETHER A EMPLOYER, CAREGIVER, OR NOBODY IS LOGGED IN
+  // CHECKS WHO IS LOGGED IN
   const loadUser = () => {
     fetch('/employer')
-    .then((resp) => {
-      if (resp.ok) {
-        resp.json().then(user => {
-          setUser(user);
-          setLoggedIn(true);
-        });
-      }
-      else {
+    .then(resp => resp.json())
+    .then(data => {
+      if (!(data.hasOwnProperty('errors'))) {
+        console.log("this is an employer");
+        setLoggedIn(true);
+        setUser(data);
+      } else {
+        console.log("could be a caregiver or nobody");
         fetch('/caregiver')
-        .then(resp => {
-          if (resp.ok) {
-            resp.json().then(user => {
-              setUser(user);
-              setLoggedIn(true);
-            });
-          }
-          else {
-            console.log("No one is logged in")
-            setLoggedIn(false);
+        .then(resp => resp.json())
+        .then(data => {
+          if (!(data.hasOwnProperty('errors'))) {
+            console.log("this is a caregiver");
+            setLoggedIn(true);
+            setUser(data);
           }
         });
       }
+    });
+  }
+
+  const loadJobs = () => {
+    fetch('/jobs')
+    .then(resp => resp.json())
+    .then(data => {
+        setJobs(data);
     });
   }
 
@@ -50,9 +56,9 @@ function App() {
     <Router>
       <div>
         <NavBar loggedIn={loggedIn} setUser={setUser} setLoggedIn={setLoggedIn} user={user}/>
-        <Route exact path="/" render={() => <HomePage />}/>
-        <Route exact path="/calendar" render={() => <CalendarPage />}/>
-        <Route exact path="/profile" render={() => <ProfilePage user={user}/>}/>
+        <Route exact path="/" render={() => <HomePage user={user}  />}/>
+        <Route exact path="/calendar" render={() => <CalendarPage jobs={jobs} user={user} />}/>
+        <Route exact path="/profile" render={() => <ProfilePage user={user} jobs={jobs} />}/>
       </div>
     </Router>
   );

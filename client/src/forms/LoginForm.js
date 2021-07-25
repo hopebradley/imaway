@@ -7,7 +7,7 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
     const [dataInvalid, setDataInvalid] = useState(false);
     const [errors, setErrors] = useState([]);
 
-    const [ selectedUserType, setSelectedUserType ] = useState("caregiver");
+    const [ selectedUserType, setSelectedUserType ] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();

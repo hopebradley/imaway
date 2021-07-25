@@ -19,7 +19,7 @@ const ProfileInfo = ( { user }) => {
                 <div>
                     <img src={user.img_url} className="profile-image" alt="profile"></img>
                     <h1>{user.name}</h1>
-                    <h2>{user.constructor.name}</h2>
+                    <h2>{user.status}</h2>
                     <h3>@{user.username}</h3>
                     <p>{user.bio}</p>
                     <br></br>

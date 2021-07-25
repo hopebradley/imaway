@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :employers
-  resources :caregivers
+  resources :employers, only: [:create, :index, :destroy, :update]
+  resources :caregivers, only: [:create, :index, :destroy, :update]
   resources :jobs
   post '/caregiver-login', to: 'sessions#create_caregiver_session'
   post '/employer-login', to: 'sessions#create_employer_session'

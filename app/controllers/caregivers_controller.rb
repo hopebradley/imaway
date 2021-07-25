@@ -17,7 +17,7 @@ class CaregiversController < ApplicationController
 
     def show
         caregiver = find_caregiver
-        if caregiver
+        if caregiver && caregiver.status === "caregiver"
             render json: caregiver, status: :created
         else
             render_unauthorized_response

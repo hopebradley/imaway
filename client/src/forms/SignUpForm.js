@@ -28,7 +28,8 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
                 bio: bio,
                 img_url: imageUrl,
                 password: password,
-                password_confirmation: passwordConfirmation
+                password_confirmation: passwordConfirmation,
+                status: selectedUserType.toLowerCase()
             })
         })
         .then((resp) => resp.json())

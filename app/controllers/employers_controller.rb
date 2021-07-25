@@ -17,7 +17,7 @@ class EmployersController < ApplicationController
 
     def show
         employer = find_employer
-        if employer
+        if employer && employer.status === "employer"
             render json: employer, status: :created
         else
             render_unauthorized_response

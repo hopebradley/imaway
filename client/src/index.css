@@ -1,3 +1,11 @@
+/* 
+COLOR CHEATSHEET
+caregiver//
+background: rgb(255, 243, 240);
+button: rgb(179, 132, 132);
+nav: rgb(238, 163, 135);
+*/
+
 body {
   margin: 0;
   font-family: 'Red Hat Display', sans-serif;
@@ -54,12 +62,12 @@ label {
 }
 .main-nav {
   margin-left: 0px;
-  font-size: 200%;
+  font-size: 250%;
   font-weight: 900;
   color: white
 }
 .active-item {
-
+  font-size: large;
 }
 
 /* LOGIN STYLING */
@@ -78,7 +86,8 @@ label {
 .logout-question {
   float: right;
   font-size: small;
-  margin-top: 1px
+  padding: 0px;
+  margin-bottom: 3px;
 }
 
 /* PROFILE STYLING */
@@ -112,6 +121,21 @@ label {
   height: 100px;;
   border-radius: 50%;
 
+}
+
+/* CALENDAR */
+.job-list {
+  margin:5%;
+}
+
+.job {
+  width: 40%;
+  margin-bottom: 3%;
+  padding: 1%;
+  background-color:white;
+  border-width: 3px;
+  border-color: rgb(238, 163, 135);;
+  border-style:solid; 
 }
 
 
