@@ -63,7 +63,7 @@ class CaregiversController < ApplicationController
         render json: { errors: ["Unauthorized"]}, status: :unauthorized
     end
 
-    def render_unprocessable_entity_response(caregiver)
-        render json: { errors: caregiver.errors.full_messages }, status: :unprocessable_entity
+    def render_unprocessable_entity_response(obj)
+        render json: { errors: obj.errors.full_messages }, status: :unprocessable_entity
     end
 end

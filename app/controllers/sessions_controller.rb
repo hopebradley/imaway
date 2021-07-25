@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
             session.clear
             head :no_content
         else
-            render json: { errors: ["Unauthorized"]}, status: :unauthorized
+            render_unauthorized_response
         end
     end
     

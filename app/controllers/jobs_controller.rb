@@ -59,29 +59,12 @@ class JobsController < ApplicationController
 
     private
 
-    def find_employer
-        Employer.find_by(id: session[:user_id])
-    end
 
-    def find_job
-        Job.find_by(id: params[:id])
-    end
 
     def job_params
         params.permit(:title, :category, :salary, :salary_type, :start, :end, :employer_id, :caregiver_id)
     end
 
-    # exception handling helper methods
-    def render_unauthorized_response
-        render json: { errors: ["Unauthorized"]}, status: :unauthorized
-    end
 
-    def render_unprocessable_entity_response(job)
-        render json: { errors: job.errors.full_messages }, status: :unprocessable_entity
-    end
-
-    def render_not_found_response
-        render json: { errors: ["Job not found"] }, status: :not_found
-    end
 
 end

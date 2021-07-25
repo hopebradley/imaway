@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :alerts
   resources :employers, only: [:create, :index, :destroy, :update]
   resources :caregivers, only: [:create, :index, :destroy, :update]
   resources :jobs
