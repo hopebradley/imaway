@@ -1,21 +1,10 @@
 
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Job = ( { job, user, loadData } ) => {
 
-    // let employer;
-    
-    // useEffect({
-
-    // })
-
-    // fetch('/employers')
-    // .then(resp => resp.json())
-    // .then(data => {
-    //     employer = data.find(e => e.id === job.employer_id)
-    // });
-
-    let caregiver = "job available";
+    // const [ interestedClicked, setInterestedClicked ] = useState(false);
+    const [ interestButtonText, setInterestButtonText ] = useState("I'm interested!");
 
     function handleClick() {
         console.log("Hi")
@@ -30,7 +19,17 @@ const Job = ( { job, user, loadData } ) => {
                 job_id: job.id
             })
         })
-        .then(() => loadData());
+        .then(resp => resp.json())
+        .then((data) => {
+            if (!data.hasOwnProperty('errors')) {
+                // setInterestedClicked(true)
+                setInterestButtonText("We'll let the employer know.")
+                loadData();
+            } else {
+                setInterestButtonText("You've already expressed interest in this job!")
+            }
+            
+        });
     }
 
     return (
@@ -40,7 +39,8 @@ const Job = ( { job, user, loadData } ) => {
             <h3>{job.category}</h3>
             Caregiver: {job.caregiver ? <p>{job.caregiver.name}</p> : "position open"}
             <p>${job.salary} {job.salary_type}</p>
-            {user.status === "caregiver" ? <button onClick={handleClick}>I'm interested!</button> : null}
+            {user.status === "caregiver" ? <button onClick={handleClick}>{interestButtonText}</button> : null}
+            {/* {interestedClicked ? <div className="positive-message">We'll let the employer know!</div> : null } */}
         </div>
     )
 }

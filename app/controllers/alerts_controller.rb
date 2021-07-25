@@ -16,11 +16,12 @@ class AlertsController < ApplicationController
 
     def create
         job = Job.find_by(id: params[:job_id])
-        if job
+        duplicate = job.alerts.find_by(sender_id: params[:sender_id])
+        if !duplicate
             alert = Alert.create(alert_params)
             render json: alert
         else
-            render_not_found_response
+            render json: { errors: ["Employer already alerted"] }
         end
     end
 

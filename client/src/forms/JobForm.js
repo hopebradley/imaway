@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import TimePicker from 'react-time-picker';
+import React from 'react';
+// import DatePicker from 'react-datepicker';
+// import TimePicker from 'react-time-picker';
 
 const JobForm = () => {
 
     return (
         <div>
             <form>
-                <DatePicker 
+                {/* <DatePicker 
                     required
                     // selected={appDate}
                     // onChange={handleChangeDate}
@@ -28,7 +28,7 @@ const JobForm = () => {
                           boundariesElement: "scrollParent"
                         }
                       }}
-                />
+                /> */}
             </form>
         </div>
     )

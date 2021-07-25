@@ -154,4 +154,16 @@ label {
   border-style:solid; 
 }
 
+/* MESSAGES */
+
+.positive-message {
+  width: 70%;
+  padding: 1%;
+  margin-top: 1%;
+  background-color:rgb(242, 255, 240);
+  border-width: 3px;
+  border-color: rgb(134, 179, 132);
+  border-style:solid;
+}
+
 

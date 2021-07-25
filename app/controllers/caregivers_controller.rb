@@ -50,20 +50,8 @@ class CaregiversController < ApplicationController
 
     private
 
-    def find_caregiver
-        Caregiver.find_by(id: session[:user_id])
-    end
-
     def caregiver_params
         params.permit(:username, :password, :password_confirmation, :name, :bio, :img_url)
     end
 
-    # exception handling helper methods
-    def render_unauthorized_response
-        render json: { errors: ["Unauthorized"]}, status: :unauthorized
-    end
-
-    def render_unprocessable_entity_response(obj)
-        render json: { errors: obj.errors.full_messages }, status: :unprocessable_entity
-    end
 end

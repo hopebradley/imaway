@@ -24,23 +24,19 @@ function App() {
     loadJobs();
     loadAlerts();
   }
-
-  // CHECKS WHO IS LOGGED IN
+  // ABOVE FUNCTION COMBINES ALL THE BELOW THREE
   const loadUser = () => {
     fetch('/employer')
     .then(resp => resp.json())
     .then(data => {
       if (!(data.hasOwnProperty('errors'))) {
-        console.log("this is an employer");
         setLoggedIn(true);
         setUser(data);
       } else {
-        console.log("could be a caregiver or nobody");
         fetch('/caregiver')
         .then(resp => resp.json())
         .then(data => {
           if (!(data.hasOwnProperty('errors'))) {
-            console.log("this is a caregiver");
             setLoggedIn(true);
             setUser(data);
           }
@@ -48,7 +44,6 @@ function App() {
       }
     });
   }
-
   const loadJobs = () => {
     fetch('/jobs')
     .then(resp => resp.json())
@@ -56,7 +51,6 @@ function App() {
         setJobs(data);
     });
   }
-
   const loadAlerts = () => {
     fetch('/alerts')
     .then(resp => resp.json())

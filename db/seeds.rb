@@ -18,6 +18,3 @@ caregiver2 = Caregiver.create(username: "mercy", password: "1", password_confirm
 job1 = employer1.jobs.create(title: "Nanny for 3 kids", category: "children", salary: "12", salary_type: "hourly", start: "2021-07-24 13:00:00 +0400", end: "2021-07-24 16:00:00 +0400")
 job2 = employer1.jobs.create(title: "Water my plants this weekend", category: "plants", salary: "20", salary_type: "daily", start: "2021-07-23 19:00:00 +0400", end: "2021-07-25 17:00:00 +0400")
 job3 = employer1.jobs.create(title: "Pets need feeding this week!", category: "pets", salary: "200", salary_type: "flat rate", start: "2021-07-26 20:30:00 +0400", end: "2021-07-31 16:00:00 +0400")
-
-alert1 = job1.alerts.create(contents: "is interested", sender_id: caregiver2.id);
-alert2 = job1.alerts.create(contents: "is interested", sender_id: caregiver1.id);

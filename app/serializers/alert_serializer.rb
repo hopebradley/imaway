@@ -1,4 +1,5 @@
 class AlertSerializer < ActiveModel::Serializer
+  belongs_to :job
   attributes :id, :contents, :type, :job_id, :job, :employer, :potential_caregiver
 
   def job

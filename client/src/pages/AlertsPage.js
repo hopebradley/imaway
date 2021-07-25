@@ -6,7 +6,7 @@ const AlertsPage = ( { user, alerts, loadData }) => {
     function displayAlerts() {
         // const myAlerts = alerts.select(a => a.employer.id === user.id);
         // console.log(myAlerts);
-        return alerts.map(a => <Alert alert={a} loadData={loadData}/>)
+        return alerts.map(a => <Alert key={a.id} alert={a} loadData={loadData}/>)
     }
 
     return (
