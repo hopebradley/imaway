@@ -29,21 +29,16 @@ class JobsController < ApplicationController
     end
 
     def update
-        employer = find_employer
-        if employer
-            job = find_job
-            if job
-                job.update(job_params)
-                if job.valid?
-                    render json: job, status: :created
-                else
-                    render_unprocessable_entity_response(job)
-                end
+        job = find_job
+        if job
+            job.update(job_params)
+            if job.valid?
+                render json: job, status: :created
             else
-                render_not_found_response
+                render_unprocessable_entity_response(job)
             end
         else
-            render_unauthorized_response
+            render_not_found_response
         end
     end
 

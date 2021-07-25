@@ -57,7 +57,7 @@ function App() {
       <div>
         <NavBar loggedIn={loggedIn} setUser={setUser} setLoggedIn={setLoggedIn} user={user}/>
         <Route exact path="/" render={() => <HomePage user={user}  />}/>
-        <Route exact path="/calendar" render={() => <CalendarPage jobs={jobs} user={user} />}/>
+        <Route exact path="/calendar" render={() => <CalendarPage jobs={jobs} user={user} loadJobs={loadJobs}/>}/>
         <Route exact path="/profile" render={() => <ProfilePage user={user} jobs={jobs} />}/>
       </div>
     </Router>
