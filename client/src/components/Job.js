@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 
-const Job = ( { job, user, loadJobs} ) => {
+const Job = ( { job, user, loadJobs, loadAlerts } ) => {
 
     // let employer;
     
@@ -18,16 +18,28 @@ const Job = ( { job, user, loadJobs} ) => {
     let caregiver = "job available";
 
     function handleClick() {
-        fetch('/jobs/'+job.id, {
-            method: 'PATCH',
+        fetch('/alerts', {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                caregiver_id: user.id
+                contents: "is interested in "+job.title,
+                sender_id: user.id,
+                job_id: job.id
             })
         })
-        .then(() => loadJobs());
+        .then(() => loadAlerts());
+        // fetch('/jobs/'+job.id, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         caregiver_id: user.id
+        //     })
+        // })
+        // .then(() => loadJobs());
     }
 
     return (

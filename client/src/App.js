@@ -6,16 +6,19 @@ import HomePage from './pages/HomePage';
 import NavBar from './components/NavBar'
 import ProfilePage from './pages/ProfilePage';
 import CalendarPage from './pages/CalendarPage';
+import AlertsPage from './pages/AlertsPage';
 
 function App() {
 
   const [ loggedIn, setLoggedIn ] = useState(false);
   const [ user, setUser ] = useState({});
   const [ jobs, setJobs ] = useState([]);
+  const [ alerts, setAlerts ] = useState([]);
 
   useEffect(() => {
     loadUser();
     loadJobs();
+    loadAlerts();
   }, []);
 
   // CHECKS WHO IS LOGGED IN
@@ -50,6 +53,15 @@ function App() {
     });
   }
 
+  const loadAlerts = () => {
+    fetch('/alerts')
+    .then(resp => resp.json())
+    .then(data => {
+        setAlerts(data);
+        console.log(data);
+    });
+  }
+
   if (!loggedIn) return <LoginPage setUser={setUser} setLoggedIn={setLoggedIn}/>;
 
   return (
@@ -57,7 +69,8 @@ function App() {
       <div>
         <NavBar loggedIn={loggedIn} setUser={setUser} setLoggedIn={setLoggedIn} user={user}/>
         <Route exact path="/" render={() => <HomePage user={user}  />}/>
-        <Route exact path="/calendar" render={() => <CalendarPage jobs={jobs} user={user} loadJobs={loadJobs}/>}/>
+        <Route exact path="/calendar" render={() => <CalendarPage jobs={jobs} user={user} loadJobs={loadJobs} loadAlerts={loadAlerts}/>}/>
+        <Route exact path="/alerts" render={() => <AlertsPage jobs={jobs} user={user} loadJobs={loadJobs} alerts={alerts}/>}/>
         <Route exact path="/profile" render={() => <ProfilePage user={user} jobs={jobs} />}/>
       </div>
     </Router>

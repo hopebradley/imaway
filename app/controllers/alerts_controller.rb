@@ -2,7 +2,7 @@ class AlertsController < ApplicationController
 
     def index
         alerts = Alert.all
-        render json: :alerts
+        render json: alerts
     end
 
     def show

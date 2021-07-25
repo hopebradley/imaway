@@ -2,6 +2,7 @@ class Job < ApplicationRecord
 
     belongs_to :caregiver, optional: true
     belongs_to :employer
+    has_many :alerts
 
 
     # validates :title, presence: true, length: {minimum: 3}

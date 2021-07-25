@@ -10,6 +10,7 @@ class AlertSerializer < ActiveModel::Serializer
   end
 
   def employer
-    Employer.find_by(id: object.job.employer_id)
+    job = Job.find_by(id: object.job_id)
+    Employer.find_by(id: job.employer_id)
   end
 end
