@@ -21,12 +21,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        if session[:user_id]
-            session.clear
-            head :no_content
-        else
-            render_unauthorized_response
-        end
+        session.clear
+        head :no_content
     end
     
 

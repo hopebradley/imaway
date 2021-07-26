@@ -14,8 +14,12 @@ const NavBar = ({ loggedIn, setLoggedIn, setUser, user, userType }) => {
     });
   }
 
+  let navbarClass;
+
+  user.status === "caregiver" ? navbarClass = "navbar caregiver-nav" : navbarClass="navbar employer-nav"
+
   return (
-    <div className="navbar">
+    <div className={navbarClass}>
       <NavLink className="nav-item main-nav" activeClassName="active-item" to="/"exact>ImAway</NavLink>
       <NavLink className="nav-item" activeClassName="active-item" to="/calendar">Calendar</NavLink>
       <NavLink className="nav-item" activeClassName="active-item" to="/alerts">Alerts</NavLink>

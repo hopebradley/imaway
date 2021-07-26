@@ -10,8 +10,8 @@ const JobForm = () => {
   const [ category, setCategory ] = useState("");
   const [ startDate, setStartDate ] = useState(new Date());
   const [ endDate, setEndDate ] = useState(new Date());
-  const [ salary, setSalary ] = useState("");
-  const [ salaryType, setSalaryType ] = useState("");
+  // const [ salary, setSalary ] = useState("");
+  // const [ salaryType, setSalaryType ] = useState("");
 
   function handleClick() {
     setCreatingJob(true);
@@ -30,9 +30,10 @@ const JobForm = () => {
       return (
         <div>
           <form onSubmit={handleSubmit}>
-            Title
+            <h3>Title</h3>
             <input type="text"></input>
-            What type of care do you need?
+            <br></br>
+            <h3>What type of care do you need?</h3>
             <select>
               <option>Children</option>
               <option>Pets</option>
@@ -40,23 +41,28 @@ const JobForm = () => {
               <option>House</option>
               <option>Other</option>
             </select>
-            Start Date
+            <br></br>
+            <h3>Start Date</h3>
             <DatePicker
                   selected={startDate} 
                   onChange={date => startDate(date)}
             />
-            End Date
+            <br></br>
+            <h3>End Date</h3>
             <DatePicker
                   selected={endDate} 
                   onChange={date => endDate(date)}
             />
-            Pay
-            $<input type="text"></input>
+            <br></br>
+            <h3>Pay</h3>
+            $<input type="text"></input> 
             <select>
-              <option></option>
-              <option></option>
-              <option></option>
+              <option>Per Hour</option>
+              <option>Per Day</option>
+              <option>Flat Rate</option>
             </select>
+            <br></br>
+            <br></br>
             <input type="submit"></input>
           </form>
         </div>
@@ -66,7 +72,7 @@ const JobForm = () => {
 
 
     return (
-        <div>
+        <div className='job-form'>
             {displayForm()}
         </div>
     )
