@@ -8,7 +8,7 @@ class EmployersController < ApplicationController
     def create
         employer = Employer.create(employer_params)
         if employer.valid?
-            session[:user_id] = employer.id
+            session[:employer_id] = employer.id
             render json: employer, status: :created
         else
             render_unprocessable_entity_response(employer)
@@ -16,22 +16,20 @@ class EmployersController < ApplicationController
     end
 
     def show
-        employer = find_employer
-        if employer && employer.status === "employer"
-            render json: employer, status: :created
+        if current_employer 
+            render json: current_employer, status: :created
         else
             render_unauthorized_response
         end
     end
 
     def update
-        employer = find_employer
-        if employer
-            employer.update(employer_params)
-            if employer.valid?
-                render json: employer, status: :created
+        if current_employer
+            current_employer.update(employer_params)
+            if current_employer.valid?
+                render json: current_employer, status: :created
             else
-                render_unprocessable_entity_response(employer)
+                render_unprocessable_entity_response(current_employer)
             end
         else
             render_not_found_response
@@ -39,9 +37,8 @@ class EmployersController < ApplicationController
     end
 
     def destroy
-        employer = find_employer
-        if employer
-            employer.destroy
+        if current_employer
+            current_employer.destroy
             head :no_content
         else
             render_unauthorized_response

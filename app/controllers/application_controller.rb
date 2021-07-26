@@ -5,12 +5,12 @@ class ApplicationController < ActionController::API
     Job.find_by(id: params[:id])
   end
 
-  def find_employer
-    Employer.find_by(id: session[:user_id])
+  def current_employer
+    Employer.find_by(id: session[:employer_id])
   end
 
-  def find_caregiver
-    Caregiver.find_by(id: session[:user_id])
+  def current_caregiver
+    Caregiver.find_by(id: session[:caregiver_id])
   end
 
   def find_alert

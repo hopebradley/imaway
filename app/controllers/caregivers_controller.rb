@@ -8,7 +8,7 @@ class CaregiversController < ApplicationController
     def create
         caregiver = Caregiver.create(caregiver_params)
         if caregiver.valid?
-            session[:user_id] = caregiver.id
+            session[:caregiver_id] = caregiver.id
             render json: caregiver, status: :created
         else
             render_unprocessable_entity_response(caregiver)
@@ -16,22 +16,20 @@ class CaregiversController < ApplicationController
     end
 
     def show
-        caregiver = find_caregiver
-        if caregiver && caregiver.status === "caregiver"
-            render json: caregiver, status: :created
+        if current_caregiver 
+            render json: current_caregiver, status: :created
         else
             render_unauthorized_response
         end
     end
 
     def update
-        caregiver = find_caregiver
-        if caregiver
-            caregiver.update(caregiver_params)
-            if caregiver.valid?
-                render json: caregiver, status: :created
+        if current_caregiver
+            current_caregiver.update(caregiver_params)
+            if current_caregiver.valid?
+                render json: current_caregiver, status: :created
             else
-                render_unprocessable_entity_response(caregiver)
+                render_unprocessable_entity_response(current_caregiver)
             end
         else
             render_not_found_response
@@ -39,9 +37,8 @@ class CaregiversController < ApplicationController
     end
 
     def destroy
-        caregiver = find_caregiver
-        if caregiver
-            caregiver.destroy
+        if current_caregiver
+            current_caregiver.destroy
             head :no_content
         else
             render_unauthorized_response

@@ -15,9 +15,8 @@ class JobsController < ApplicationController
     end
 
     def create
-        employer = find_employer
-        if employer
-            job = employer.jobs.create(job_params)
+        if current_employer
+            job = current_employer.jobs.create(job_params)
             if job.valid?
                 render json: job, status: :created
             else
@@ -43,8 +42,7 @@ class JobsController < ApplicationController
     end
 
     def destroy
-        employer = find_employer
-        if employer
+        if current_employer
             job = find_job
             if job 
                 job.destroy
