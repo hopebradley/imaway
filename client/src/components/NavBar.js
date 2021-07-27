@@ -14,20 +14,42 @@ const NavBar = ({ loggedIn, setLoggedIn, setUser, user, userType }) => {
     });
   }
 
-  let navbarClass;
+  function displayNavBar() {
+    if (user.status === "caregiver") {
+      return (
+        <div className="navbar caregiver-nav">
+          <NavLink className="nav-item main-nav" activeClassName="active-item" to="/"exact>ImAway</NavLink>
+          <NavLink className="nav-item" activeClassName="active-item" to="/jobs">Look For Jobs</NavLink>
+          {/* <NavLink className="nav-item" activeClassName="active-item" to="/alerts">Alerts</NavLink> */}
+          <NavLink className="nav-item" activeClassName="active-item" to="/profile">Profile</NavLink>
+          <div className="logout-question">
+            <p>{user.name} - {user.status}</p>
+            <Link to="/"><button onClick={handleLogoutClick}>logout</button></Link>
+          </div>
+        </div>
 
-  user.status === "caregiver" ? navbarClass = "navbar caregiver-nav" : navbarClass="navbar employer-nav"
+      )
+      
+    } else {
+      return (
+        <div className="navbar caregiver-nav">
+          <NavLink className="nav-item main-nav" activeClassName="active-item" to="/"exact>ImAway</NavLink>
+          <NavLink className="nav-item" activeClassName="active-item" to="/jobs">My Jobs</NavLink>
+          {/* <NavLink className="nav-item" activeClassName="active-item" to="/alerts">Alerts</NavLink> */}
+          <NavLink className="nav-item" activeClassName="active-item" to="/profile">Profile</NavLink>
+          <div className="logout-question">
+            <p>{user.name} - {user.status}</p>
+            <Link to="/"><button onClick={handleLogoutClick}>logout</button></Link>
+          </div>
+        </div>
+      )
+
+    }
+  }
 
   return (
-    <div className={navbarClass}>
-      <NavLink className="nav-item main-nav" activeClassName="active-item" to="/"exact>ImAway</NavLink>
-      <NavLink className="nav-item" activeClassName="active-item" to="/calendar">Calendar</NavLink>
-      <NavLink className="nav-item" activeClassName="active-item" to="/alerts">Alerts</NavLink>
-      <NavLink className="nav-item" activeClassName="active-item" to="/profile">Profile</NavLink>
-      <div className="logout-question">
-        <p>{user.name} - {user.status}</p>
-        <Link to="/"><button onClick={handleLogoutClick}>logout</button></Link>
-      </div>
+    <div>
+      {displayNavBar()}
     </div>
 
   );

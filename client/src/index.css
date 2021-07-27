@@ -60,7 +60,7 @@ label {
   background-color:rgb(114, 140, 216);
 }
 .nav-item {
-  font-size: small;
+  font-size: 100%;
   font-weight: 700;
   padding: 1px;
   margin:3%;
@@ -69,7 +69,7 @@ label {
 }
 .main-nav {
   margin-left: 0px;
-  font-size: 250%;
+  font-size: 200%;;
   font-weight: 900;
   color: white
 }
@@ -139,7 +139,6 @@ label {
   margin:5%;
   float: left;
 }
-
 .job {
   margin-bottom: 3%;
   padding: 2%;
@@ -156,15 +155,22 @@ label {
   text-align: center;
   padding: 2%;
 }
+.job-form input.date-month {
+  width: 8%;
+}
+.job-form input.year {
+  width: 15%;
+}
+.job-form input.time {
+  width: 26%;
+  margin-left: 1%;
+}
 
 /* ALERTS */
-
 .alerts-page {
   margin: 5%;
 }
-
 .alert {
-  width: 40%;
   margin-bottom: 3%;
   padding: 1%;
   background-color:white;
@@ -172,6 +178,10 @@ label {
   border-color: rgb(179, 132, 132);
   border-style:solid; 
 }
+.alert button {
+  margin-right: 20%;
+
+} 
 
 /* MESSAGES */
 
