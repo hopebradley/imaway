@@ -27,22 +27,18 @@ function App() {
   // ABOVE FUNCTION COMBINES ALL THE BELOW THREE
   const loadUser = () => {
     fetch('/employer')
-    .then(resp => resp.json())
-    .then(data => {
-      if (!(data.hasOwnProperty('errors'))) {
+    .then(resp => {
+      if (resp.ok) {
         setLoggedIn(true);
-        setUser(data);
+        setUser(resp.json());
       } else {
         fetch('/caregiver')
-        .then(resp => resp.json())
-        .then(data => {
-          if (!(data.hasOwnProperty('errors'))) {
+        .then(resp => {
+          if (resp.ok) {
             setLoggedIn(true);
-            setUser(data);
-          }
-        });
-      }
-    });
+            setUser(resp.json());
+          }});
+      }});
   }
   const loadJobs = () => {
     fetch('/jobs')

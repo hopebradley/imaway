@@ -49,8 +49,7 @@ const Job = ( { job, user, loadData } ) => {
                     <h3>{job.employer.name}</h3>
                     <h3>{job.title}</h3>
                     <h3>{job.category}</h3>
-                    <h4>Starts: {job.start}</h4>
-                    <h4>End: {job.end}</h4>
+                    <h4>{job.date}</h4>
                     Caregiver: {job.caregiver ? <p>{job.caregiver.name}</p> : "position open"}
                     <p>${job.salary} {job.salary_type}</p>
                     {user.status === "caregiver" ? <button onClick={handleInterestButtonClick}>{interestButtonText}</button> : null}

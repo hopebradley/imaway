@@ -3,21 +3,18 @@ import DatePicker from 'react-datepicker';
 import TimePicker from 'react-time-picker';
 import "react-datepicker/dist/react-datepicker.css";
 
-const JobForm = () => {
+const JobForm = ( { user, loadData }) => {
 
   const [ creatingJob, setCreatingJob ] = useState(false);
   const [ title, setTitle ] = useState("");
   const [ category, setCategory ] = useState("Select One");
-  const [ startDate, setStartDate ] = useState("");
-  const [ startMonth, setStartMonth ] = useState("");
-  const [ startYear, setStartYear ] = useState("");
+  const [ startDate, setStartDate ] = useState(new Date());
   const [ startTime, setStartTime ] = useState("");
-  const [ endDate, setEndDate ] = useState("");
-  const [ endMonth, setEndMonth ] = useState("");
-  const [ endYear, setEndYear ] = useState("");
+  const [ endDate, setEndDate ] = useState(new Date());
   const [ endTime, setEndTime ] = useState("");
   const [ salary, setSalary ] = useState("");
   const [ salaryType, setSalaryType ] = useState("Select One");
+  const [ jobDate, setJobDate ] = useState("")
 
   function handleClick() {
     setCreatingJob(true);
@@ -25,16 +22,36 @@ const JobForm = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    let date = "";
-    let start = startMonth+" / "+startDate+" / "+startYear
-    let end = endMonth+" / "+endDate+" / "+endYear
-    if ( start === end ) {
-      date = start + " from " + startTime+" to "+endTime
-    } else {
-      date = start + " at "+startTime+" to "+end+" at "+endTime
+
+    let start = startDate.toDateString();
+    let end = endDate.toDateString();
+    let startYear = startDate.getFullYear();
+    let endYear = endDate.getFullYear();
+    if (startYear === endYear) {
+      start = start.slice(0, -5);
     }
-    console.log(title, category, date, salary, salaryType)
-    setCreatingJob(false);
+    setJobDate(start+" - "+end)
+    console.log(title, category, jobDate, salary, salaryType)
+    fetch('/jobs', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        category: category,
+        date: jobDate,
+        salary: salary,
+        salary_type: salaryType,
+        employer_id: user.id
+      })
+    })
+    .then(resp => resp.json())
+    .then((data) => {
+      console.log(data)
+      setCreatingJob(false);
+      loadData();
+    })
   }
 
   function displayForm() {
@@ -63,73 +80,47 @@ const JobForm = () => {
               <option>Other</option>
             </select>
             <br></br>
-            <h3>Start Date</h3>
-              <input
-                className="date-month"
+            <h3>Start Date:</h3>
+              {/* <input
+                className="time"
                 type="text"
-                placeholder="DD"
+                placeholder="MM/DD/YY"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}>
-              </input>/
-              <input
-                className="date-month"
-                type="text"
-                placeholder="MM"
-                value={startMonth}
-                onChange={(e) => setStartMonth(e.target.value)}>
-              </input>/
-              <input
-                className="year"
-                type="text"
-                placeholder="YYYY"
-                value={startYear}
-                onChange={(e) => setStartYear(e.target.value)}>
-              </input> -
+              </input>
+              <p>Time:</p>
               <input
                 className="time"
                 type="text"
-                placeholder="HH:MM (AM/PM)"
+                placeholder="HH:MM"
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}>
-              </input>
-            {/* <DatePicker
+              </input> */}
+            <DatePicker
                   selected={startDate} 
-                  onChange={date => startDate(date)}
-            /> */}
+                  onChange={date => setStartDate(date)}
+            />
             <br></br>
-            <h3>End Date</h3>
-            <input
-                className="date-month"
+            <h3>End Date:</h3>
+            {/* <input
+                className="time"
                 type="text"
-                placeholder="DD"
+                placeholder="MM/DD/YY"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}>
-              </input>/
-              <input
-                className="date-month"
-                type="text"
-                placeholder="MM"
-                value={endMonth}
-                onChange={(e) => setEndMonth(e.target.value)}>
-              </input>/
-              <input
-                className="year"
-                type="text"
-                placeholder="YYYY"
-                value={endYear}
-                onChange={(e) => setEndYear(e.target.value)}>
-              </input> -  
+              </input>
+              <p>Time:</p>
               <input
                 className="time"
                 type="text"
-                placeholder="HH:MM (AM/PM)"
+                placeholder="HH:MM"
                 value={endTime}
                 onChange={(e) => setEndTime(e.target.value)}>
-              </input>
-            {/* <DatePicker
+              </input> */}
+            <DatePicker
                   selected={endDate} 
-                  onChange={date => endDate(date)}
-            /> */}
+                  onChange={date => setEndDate(date)}
+            />
             <br></br>
             <h3>Pay</h3>
             $<input 

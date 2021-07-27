@@ -15,6 +15,6 @@ employer2 = Employer.create(username: "ben", password: "1", password_confirmatio
 caregiver1 = Caregiver.create(username: "tim", password: "1", password_confirmation: "1", name: "Time Bradley", bio: "hi", img_url: "default_profile_img.jpeg", status: "caregiver")
 caregiver2 = Caregiver.create(username: "mercy", password: "1", password_confirmation: "1", name: "Mercy Vigil", bio: "hi", img_url: "default_profile_img.jpeg", status: "caregiver")
 
-job1 = employer1.jobs.create(title: "Nanny for 3 kids", category: "children", salary: "12", salary_type: "hourly", start: "2021-07-24 13:00:00 +0400", end: "2021-07-24 16:00:00 +0400")
-job2 = employer1.jobs.create(title: "Water my plants this weekend", category: "plants", salary: "20", salary_type: "daily", start: "2021-07-23 19:00:00 +0400", end: "2021-07-25 17:00:00 +0400")
-job3 = employer1.jobs.create(title: "Pets need feeding this week!", category: "pets", salary: "200", salary_type: "flat rate", start: "2021-07-26 20:30:00 +0400", end: "2021-07-31 16:00:00 +0400")
+job1 = employer1.jobs.create(title: "Babysitting for 3 kids", category: "children", salary: "12", salary_type: "hourly", date: "11/23/2021 from 2:00PM to 4:00PM")
+job2 = employer1.jobs.create(title: "Water my plants this weekend", category: "plants", salary: "20", salary_type: "daily", date: "07/30/2021 at 6:00PM to 08/01/2021 at 4:00PM")
+job3 = employer1.jobs.create(title: "Pets need feeding this week!", category: "pets", salary: "200", salary_type: "flat rate", date: "11/23/2021 at 2:00 to 11/30/2021 at 4:00 PM")

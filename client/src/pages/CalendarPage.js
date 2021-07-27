@@ -7,7 +7,7 @@ const CalendarPage = ( { jobs, user, loadData } ) => {
     return (
         <div className="jobs-page">
             <JobsContainer jobs={jobs} user={user} loadData={loadData} />
-            <JobForm />
+            <JobForm user={user} loadData={loadData}/>
         </div>
     )
 }
