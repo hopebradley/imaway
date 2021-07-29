@@ -16,9 +16,8 @@ const Alert = ( { alert, loadData }) => {
             fetch('/alerts/'+alert.id, {
                 method: "DELETE"
             })
-            loadData();
-        })
-
+            .then(() => loadData());
+        });
     }
 
     function handleRejectClick() {

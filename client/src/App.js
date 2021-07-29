@@ -29,16 +29,24 @@ function App() {
     fetch('/employer')
     .then(resp => {
       if (resp.ok) {
-        setLoggedIn(true);
-        setUser(resp.json());
+        resp.json().then(data => {
+          setLoggedIn(true);
+          setUser(data);
+          console.log(data)
+        }); 
       } else {
         fetch('/caregiver')
         .then(resp => {
           if (resp.ok) {
-            setLoggedIn(true);
-            setUser(resp.json());
-          }});
-      }});
+            resp.json().then(data => {
+              setLoggedIn(true);
+              setUser(data);
+              console.log(data)
+            });
+          }
+        });
+      } 
+    });
   }
   const loadJobs = () => {
     fetch('/jobs')
