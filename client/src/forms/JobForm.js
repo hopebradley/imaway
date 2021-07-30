@@ -25,12 +25,7 @@ const JobForm = ( { user, loadData }) => {
 
     let start = startDate.toDateString();
     let end = endDate.toDateString();
-    let startYear = startDate.getFullYear();
-    let endYear = endDate.getFullYear();
-    if (startYear === endYear) {
-      start = start.slice(0, -5);
-    }
-    setJobDate(start+" - "+end)
+    setJobDate(start+" at "+startTime+" - "+end+" at "+endTime)
     console.log(title, category, jobDate, salary, salaryType)
     fetch('/jobs', {
       method: "POST",
@@ -81,46 +76,32 @@ const JobForm = ( { user, loadData }) => {
             </select>
             <br></br>
             <h3>Start Date:</h3>
-              {/* <input
-                className="time"
-                type="text"
-                placeholder="MM/DD/YY"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}>
-              </input>
-              <p>Time:</p>
-              <input
-                className="time"
-                type="text"
-                placeholder="HH:MM"
-                value={startTime}
-                onChange={(e) => setStartTime(e.target.value)}>
-              </input> */}
             <DatePicker
                   selected={startDate} 
                   onChange={date => setStartDate(date)}
             />
+            <p>Time:</p>
+            <input
+              className="time"
+              type="text"
+              placeholder="HH:MM"
+              value={startTime}
+              onChange={(e) => setStartTime(e.target.value)}>
+            </input>
             <br></br>
             <h3>End Date:</h3>
-            {/* <input
-                className="time"
-                type="text"
-                placeholder="MM/DD/YY"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}>
-              </input>
-              <p>Time:</p>
-              <input
-                className="time"
-                type="text"
-                placeholder="HH:MM"
-                value={endTime}
-                onChange={(e) => setEndTime(e.target.value)}>
-              </input> */}
             <DatePicker
                   selected={endDate} 
                   onChange={date => setEndDate(date)}
             />
+            <p>Time:</p>
+            <input
+              className="time"
+              type="text"
+              placeholder="HH:MM"
+              value={endTime}
+              onChange={(e) => setEndTime(e.target.value)}>
+            </input>
             <br></br>
             <h3>Pay</h3>
             $<input 

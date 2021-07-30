@@ -111,7 +111,7 @@ label {
   border-style:solid;
 }
 
-.profile-contacts {
+.profile-jobs {
   float: right;
   width: 30%;
   margin: 5%;
@@ -120,6 +120,13 @@ label {
   border-width: 3px;
   border-color: rgb(238, 163, 135);;
   border-style:solid;
+}
+.profile-job {
+  margin: 2%;
+  margin-bottom: 5%;
+  background-color: rgb(168, 232, 200);
+  padding: 5%;
+
 }
 
 /* IMAGES */

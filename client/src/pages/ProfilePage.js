@@ -1,13 +1,13 @@
 import React from 'react';
-import ContactsContainer from '../containers/ContactsContainer';
+import ProfileJobsContainer from '../containers/ProfileJobsContainer';
 import ProfileInfo from '../components/ProfileInfo';
 
-const ProfilePage = ( { user }) => {
+const ProfilePage = ( { user, jobs }) => {
 
     return (
         <div>
             <ProfileInfo user={user}/>
-            <ContactsContainer />
+            <ProfileJobsContainer user={user} jobs={jobs}/>
         </div>
         )
 }
