@@ -2,13 +2,13 @@ import React from 'react';
 import ProfileJobsContainer from '../containers/ProfileJobsContainer';
 import ProfileInfo from '../components/ProfileInfo';
 
-const ProfilePage = ( { user, jobs }) => {
+const MyProfile = ( { user, jobs, loadData }) => {
 
     return (
         <div>
-            <ProfileInfo user={user}/>
+            <ProfileInfo user={user} loadData={loadData}/>
             <ProfileJobsContainer user={user} jobs={jobs}/>
         </div>
         )
 }
-export default ProfilePage;
+export default MyProfile;

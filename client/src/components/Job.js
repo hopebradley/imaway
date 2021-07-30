@@ -3,8 +3,8 @@ import AlertsPage from '../pages/AlertsPage';
 
 const Job = ( { job, user, loadData } ) => {
 
-    // const [ interestedClicked, setInterestedClicked ] = useState(false);
     const [ interestButtonText, setInterestButtonText ] = useState("I'm interested!");
+    const [ jobDeleted, setJobDeleted ] = useState(false);
 
     function handleInterestButtonClick() {
         console.log("Hi")
@@ -22,7 +22,6 @@ const Job = ( { job, user, loadData } ) => {
         .then(resp => resp.json())
         .then((data) => {
             if (!data.hasOwnProperty('errors')) {
-                // setInterestedClicked(true)
                 setInterestButtonText("We'll let the employer know.")
                 loadData();
             } else {
@@ -37,7 +36,10 @@ const Job = ( { job, user, loadData } ) => {
             method: 'DELETE'
         })
         .then(() => {
-            loadData();
+            setJobDeleted(true);
+            window.setTimeout(() => {
+                loadData();
+            }, 1000);
         })
 
     }
@@ -54,10 +56,9 @@ const Job = ( { job, user, loadData } ) => {
                     <h3>{job.category}</h3>
                     <p><strong>Starts:</strong> {start}</p>
                     <p><strong>Ends:</strong> {end}</p>
-                    Caregiver: {job.caregiver ? <p>{job.caregiver.name}</p> : "position open"}
+                    {job.caregiver ? <p>Caregiver: <strong>{job.caregiver.name}</strong></p> : "POSITION OPEN"}
                     <p>${job.salary} {job.salary_type}</p>
                     {user.status === "caregiver" ? <button onClick={handleInterestButtonClick}>{interestButtonText}</button> : null}
-                    {/* {interestedClicked ? <div className="positive-message">We'll let the employer know!</div> : null } */}
                 </div>
 
             )
@@ -68,10 +69,12 @@ const Job = ( { job, user, loadData } ) => {
                     <h3>{job.category}</h3>
                     <p><strong>Starts:</strong> {start}</p>
                     <p><strong>Ends:</strong> {end}</p>
-                    Current Caregiver: {job.caregiver ? <p>{job.caregiver.name}</p> : "position open"}
                     <p>${job.salary} {job.salary_type}</p>
+                    {job.caregiver ? <p>Caregiver: <strong>{job.caregiver.name}</strong></p> : <p><strong>POSITION OPEN</strong></p>}
+                    <br></br>
                     <button>Edit Job</button>
                     <button onClick={handleDeleteButtonClick}>Delete Job</button>
+                    {jobDeleted ? <p className="red-message">Deleting...</p> : null}
                     <AlertsPage job={job} user={user} loadData={loadData}/>
                 </div>
 

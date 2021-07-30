@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import AlertsPage from '../pages/AlertsPage';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProfileJob = ( { job, user, loadData } ) => {
 
+
+
     function displayJob() {
         if (user.status === "caregiver") {
+            const linkName = "/employers/"+job.employer.id;
             return (
                 <div className="profile-job">
                     You are scheduled for the job
@@ -14,9 +17,11 @@ const ProfileJob = ( { job, user, loadData } ) => {
                 </div>
             )
         } else {
+            const linkName = "/caregivers/"+job.caregiver.id;
             return (
+
                 <div className="profile-job">
-                    {job.caregiver.name} 
+                    <Link to={linkName}><strong>{job.caregiver.name}</strong></Link>
                     <p>is scheduled for your job</p>
                     <strong>{job.title}</strong>
                 </div>

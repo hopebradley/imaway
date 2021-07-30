@@ -126,7 +126,21 @@ label {
   margin-bottom: 5%;
   background-color: rgb(168, 232, 200);
   padding: 5%;
-
+}
+.edit-profile-form input[type=text] {
+  font-size: 100%;
+  color: black;
+  border-style: solid;
+  border-color: black;
+}
+.edit-profile-form textarea {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 80%;
+  width: 90%;
+  margin: auto;
+  color: black;
+  border-style: solid;
+  border-color: black;
 }
 
 /* IMAGES */
@@ -200,6 +214,15 @@ label {
   border-width: 3px;
   border-color: rgb(134, 179, 132);
   border-style:solid;
+}
+
+.red-message {
+  width: 70%;
+  padding: 1%;
+  margin-top: 1%;
+  background-color:rgb(249, 195, 185);
+  border-radius: 20px;
+
 }
 
 

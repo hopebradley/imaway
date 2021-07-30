@@ -25,7 +25,7 @@ const JobForm = ( { user, loadData }) => {
 
     let start = startDate.toDateString();
     let end = endDate.toDateString();
-    setJobDate(start+" at "+startTime+" - "+end+" at "+endTime)
+    setJobDate(start+" at "+startTime+"-"+end+" at "+endTime)
     console.log(title, category, jobDate, salary, salaryType)
     fetch('/jobs', {
       method: "POST",

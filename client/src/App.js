@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import NavBar from './components/NavBar'
-import ProfilePage from './pages/ProfilePage';
+import MyProfile from './pages/MyProfile';
+import OtherCaregiver from './pages/OtherCaregiver';
 import CalendarPage from './pages/CalendarPage';
 import AlertsPage from './pages/AlertsPage';
 
@@ -14,6 +15,9 @@ function App() {
   const [ user, setUser ] = useState({});
   const [ jobs, setJobs ] = useState([]);
   const [ alerts, setAlerts ] = useState([]);
+  const [ allCaregivers, setAllCaregivers ] = useState([]);
+  const [ allEmployers, setAllEmployers ] = useState([]);
+
 
   useEffect(() => {
     loadData();
@@ -23,6 +27,8 @@ function App() {
     loadUser();
     loadJobs();
     loadAlerts();
+    loadCaregivers();
+    loadEmployers();
   }
   // ABOVE FUNCTION COMBINES ALL THE BELOW THREE
   const loadUser = () => {
@@ -32,7 +38,6 @@ function App() {
         resp.json().then(data => {
           setLoggedIn(true);
           setUser(data);
-          console.log(data)
         }); 
       } else {
         fetch('/caregiver')
@@ -41,7 +46,6 @@ function App() {
             resp.json().then(data => {
               setLoggedIn(true);
               setUser(data);
-              console.log(data)
             });
           }
         });
@@ -60,8 +64,17 @@ function App() {
     .then(resp => resp.json())
     .then(data => {
         setAlerts(data);
-        console.log(data);
     });
+  }
+  const loadCaregivers = () => {
+    fetch('/caregivers')
+    .then(resp => resp.json())
+    .then(data => setAllCaregivers(data));
+  }
+  const loadEmployers = () => {
+    fetch('/employers')
+    .then(resp => resp.json())
+    .then(data => setAllEmployers(data));
   }
 
   if (!loggedIn) return <LoginPage setUser={setUser} setLoggedIn={setLoggedIn}/>;
@@ -73,7 +86,8 @@ function App() {
         <Route exact path="/" render={() => <HomePage user={user}  />}/>
         <Route exact path="/jobs" render={() => <CalendarPage jobs={jobs} user={user} loadData={loadData} />}/>
         <Route exact path="/alerts" render={() => <AlertsPage jobs={jobs} user={user} loadData={loadData} alerts={alerts}/>}/>
-        <Route exact path="/profile" render={() => <ProfilePage user={user} jobs={jobs} />}/>
+        <Route exact path="/profile" render={() => <MyProfile user={user} jobs={jobs} loadData={loadData}/>}/>
+        <Route exact path="/caregivers/:user_id" render={(routerProps) => <OtherCaregiver params={routerProps.match.params} loadData={loadData} caregivers={allCaregivers}/>}/>
       </div>
     </Router>
   );
