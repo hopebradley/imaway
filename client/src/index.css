@@ -24,26 +24,6 @@ div {
   border-radius: 18px;
 }
 
-
-/* button,input[type=submit] {
-  border-radius: 18px;
-  border-style: none;
-  padding: 3%;
-  color: white;
-  font-weight: 700;
-  font-size: 16px;
-  background-color: rgb(179, 132, 132);
-}
-input[type=submit] {
-  background-color:rgb(255, 243, 240);
-  color: rgb(179, 132, 132);
-}
-input[type=text] {
-  width: 200px;
-  border-style: none;
-  border-radius: 10px;
-} */
-
 .small-nav {
   font-size: 130%;
   font-weight: 500;
@@ -61,13 +41,27 @@ input[type=text] {
   margin: auto;
   margin-top: 5%;
   margin-bottom: 5%;
+  background-color:rgb(255, 255, 255);
+}
+.login-page h1 {
+  font-size: 160%;
+  color:rgb(57, 163, 244);
+  margin-bottom: 5%;
 }
 .login-page h3 {
   margin-top: 3%;
   color:rgb(57, 163, 244);
+  font-weight: 700px;
 }
 .login-page input[type=text] {
-  width: 40%;
+  width: 50%;
+  border-radius: 10px;
+  border-width: 1px;
+}
+
+.login-page input[type=submit] {
+  width: 20%;
+  margin-top: 3%;
 }
 .login-page input[type=radio] {
   margin-top: 5%;
@@ -79,8 +73,26 @@ input[type=text] {
   font-size: small;
   padding: 8px;
 }
+.select-user-type button {
+  margin: 2%;
+}
+.question {
+  width: 50%;
+  margin:auto;
+  margin-top: 5%;
+  background-color: white;
+  border-color:rgb(109, 220, 135);
+  border-width: 1px;
+  border-style:solid;
+  border-radius: 20px;
+  padding: 4%;
+}
+.question h6 {
+  font-weight: 500;
+  color:rgb(113, 174, 227);
+}
 
-.profile-info {
+/* .profile-info {
   font-size: larger;
   float: left;
   margin: 5%;
@@ -209,6 +221,6 @@ input[type=text] {
   background-color:rgb(249, 195, 185);
   border-radius: 20px;
 
-}
+} */
 
 

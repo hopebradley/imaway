@@ -41,51 +41,49 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
             setLoggedIn(false);
             setNoRoleChecked(true);
         }
-        
     }
 
     function handleButtonChange(e) {
-        setSelectedUserType(e.target.value)
-        e.target.classList.add('is-primary');
+        e.preventDefault();
+        setSelectedUserType(e.target.value);
+        e.target.classList.add('is-info', 'is-light');
+        Array.from(e.target.parentElement.children).find(b => b.value !== e.target.value).classList.remove('is-info', 'is-light');
     }
 
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <h1><strong>Log Into ImAway</strong></h1>
-                <h3>username:</h3>
-                <input 
-                    id="username"
-                    type="text" 
-                    value={username}
-                    autoComplete="off"
-                    onChange={(e) => setUsername(e.target.value)}>
-                </input>
-                <h3>password:</h3>
-                <input 
-                    id="password"
-                    type="text" 
-                    value={password}
-                    autoComplete="off"
-                    onChange={(e) => setPassword(e.target.value)}>
-                </input>
-
-                <h3>I am a:</h3>
-                    <button className="button" onClick={handleButtonChange} value="caregiver">Caregiver</button>
-                <label>
+                <h1>Log Into ImAway</h1>
+                <div className="field">
+                    <label className="label">username</label>
                     <input 
-                        type="radio" 
-                        value="employer" 
-                        checked={selectedUserType === "employer"} 
-                        className="select-login-type"
-                        onChange={handleButtonChange}>
+                        className="input is-info"
+                        id="username"
+                        type="text" 
+                        value={username}
+                        autoComplete="off"
+                        onChange={(e) => setUsername(e.target.value)}>
                     </input>
-                    Employer
-                </label>
-                <br></br>
-                <br></br>
-                <input type="submit" value="LOGIN"></input>
+                </div>
+                <div className="field">
+                    <label className="label">password</label>
+                    <input 
+                        className="input is-info"
+                        id="password"
+                        type="text" 
+                        value={password}
+                        autoComplete="off"
+                        onChange={(e) => setPassword(e.target.value)}>
+                    </input>
+                </div>
+            
+                <label className="label">I am a:</label>
+                <div className="select-user-type">
+                    <button className="button is-outlined" onClick={handleButtonChange} value="caregiver">Caregiver</button>
+                    <button className="button is-outlined" onClick={handleButtonChange} value="employer">Employer</button>
+                </div>
+                <input className="button is-info is-medium" type="submit" value="LOGIN"></input>
                 {dataInvalid ? <div className="errors"><h3>Uh oh!</h3>{errors.map((e) => <p>{e}</p> )}</div> : null}
                 {noRoleChecked ? <div className="errors"><h3>Uh oh!</h3>Make sure to select a role.</div> : null}
             </form>

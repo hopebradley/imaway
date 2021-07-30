@@ -54,7 +54,10 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
     // }
 
     function handleButtonChange(e) {
+        e.preventDefault();
         setSelectedUserType(e.target.value);
+        e.target.classList.add('is-info', 'is-light');
+        Array.from(e.target.parentElement.children).find(b => b.value !== e.target.value).classList.remove('is-info', 'is-light');
     }
 
     
@@ -63,79 +66,98 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <h2>Create an ImAway Account</h2>
-                <p>I want to be a:</p>
-                <label>
-                    <input 
-                        type="radio" 
-                        value="caregiver" 
-                        checked={selectedUserType === "caregiver"} 
-                        className="select-login-type"
-                        onChange={handleButtonChange}>
-                    </input>
-                    Caregiver
-                </label>
-                <label>
-                    <input 
-                        type="radio" 
-                        value="employer" 
-                        checked={selectedUserType === "employer"} 
-                        className="select-login-type"
-                        onChange={handleButtonChange}>
-                    </input>
-                    Employer
-                </label>
-                <p>Name:</p>
-                <input 
-                    id="name"
-                    type="text" 
-                    value={name}
-                    autoComplete="off"
-                    onChange={(e) => setName(e.target.value)}>
-                </input>
-                <p>Username:</p>
-                <input 
-                    id="username"
-                    type="text" 
-                    value={username}
-                    autoComplete="off"
-                    onChange={(e) => setUsername(e.target.value)}>
-                </input>
-                <p>Bio:</p>
-                <input 
-                    id="bio"
-                    type="text" 
-                    value={bio}
-                    autoComplete="off"
-                    onChange={(e) => setBio(e.target.value)}>
-                </input> 
-                <p>Profile Picture URL:</p>
-                <input 
-                    id="img_url"
-                    type="text" 
-                    value={imageUrl}
-                    autoComplete="off"
-                    onChange={(e) => setImageUrl(e.target.value)}>
-                </input> 
-                <p>Password:</p>
-                <input 
-                    id="password"
-                    type="text" 
-                    value={password}
-                    autoComplete="off"
-                    onChange={(e) => setPassword(e.target.value)}>
-                </input>
-                <p>Password:</p>
-                <input 
-                    id="password-confirmation"
-                    type="text" 
-                    value={passwordConfirmation}
-                    autoComplete="off"
-                    onChange={(e) => setPasswordConfirmation(e.target.value)}>
-                </input>
-                <br></br>
-                <br></br>
-                <input type="submit" value="SIGN UP"></input>
+                <h1>Sign Up For ImAway</h1>
+                <div className="field">
+                    <label className="label">I want to be a</label>
+                    <div className="control">
+                        <div className="select-user-type">
+                            <button className="button is-outlined" onClick={handleButtonChange} value="caregiver">Caregiver</button>
+                            <button className="button is-outlined" onClick={handleButtonChange} value="employer">Employer</button>
+                        </div>
+                    </div>    
+                </div>
+                <div className="field">
+                    <label className="label">Name</label>
+                    <div className="control">
+                        <input 
+                            className="input is-info"
+                            placeholder="Jane Doe"
+                            id="name"
+                            type="text" 
+                            value={name}
+                            autoComplete="off"
+                            onChange={(e) => setName(e.target.value)}>
+                        </input>
+                    </div>    
+                </div>
+                <div className="field">
+                    <label className="label">Username</label>
+                    <div className="control">
+                        <input 
+                            placeholder="janedoe"
+                            className="input is-info"
+                            id="username"
+                            type="text" 
+                            value={username}
+                            autoComplete="off"
+                            onChange={(e) => setUsername(e.target.value)}>
+                        </input>
+                    </div>    
+                </div>
+                <div className="field">
+                    <label className="label">Bio</label>
+                    <div className="control">
+                        <input 
+                            className="input is-info"
+                            placeholder="19-year-old babysitter and petsitter..."
+                            id="bio"
+                            type="text" 
+                            value={bio}
+                            autoComplete="off"
+                            onChange={(e) => setBio(e.target.value)}>
+                        </input>
+                    </div>    
+                </div>
+                <div className="field">
+                    <label className="label">Image URL</label>
+                    <div className="control">
+                        <input 
+                            className="input is-info"
+                            id="img_url"
+                            type="text" 
+                            value={imageUrl}
+                            autoComplete="off"
+                            onChange={(e) => setImageUrl(e.target.value)}>
+                        </input> 
+                    </div>    
+                </div>
+                <div className="field">
+                    <label className="label">Password</label>
+                    <div className="control">
+                        <input 
+                            className="input is-info"
+                            id="password"
+                            type="text" 
+                            value={password}
+                            autoComplete="off"
+                            onChange={(e) => setPassword(e.target.value)}>
+                        </input>
+                    </div>    
+                </div>
+                <div className="field">
+                    <label className="label">Confirm Password</label>
+                    <div className="control">
+                        <input 
+                            className="input is-info"
+                            id="password-confirmation"
+                            type="text" 
+                            value={passwordConfirmation}
+                            autoComplete="off"
+                            onChange={(e) => setPasswordConfirmation(e.target.value)}>
+                        </input> 
+                    </div>    
+                </div>
+                <input className="button is-medium is-info" type="submit" value="SIGN UP"></input>
                 {dataInvalid ? <div className="errors"><h3>Uh oh!</h3>{errors.map((e) => <p>-{e}</p> )}</div> : <p></p>}
             </form>
             
