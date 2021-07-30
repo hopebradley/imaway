@@ -11,7 +11,7 @@ const LoginPage = ( { setUser, setLoggedIn }) => {
     function showLoginOrSignup() {
         if (hasAccount) {
             return (
-                <div className="login-page">
+                <div>
                     <LoginForm setUser={setUser} setLoggedIn={setLoggedIn}/>
                     <div className="question">
                         <p>New?</p>
@@ -22,7 +22,7 @@ const LoginPage = ( { setUser, setLoggedIn }) => {
         }
         else {
             return (
-                <div className="login-page">
+                <div>
                     <SignUpForm setUser={setUser} setLoggedIn={setLoggedIn}/>
                     <div className="question">
                         <p>Already have an account?</p>
@@ -36,7 +36,7 @@ const LoginPage = ( { setUser, setLoggedIn }) => {
 
 
     return (
-        <div>
+        <div className="box login-page">
             {showLoginOrSignup()}
         </div>
     )

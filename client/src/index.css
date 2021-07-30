@@ -5,13 +5,14 @@ background: rgb(255, 243, 240);
 button: rgb(179, 132, 132);
 nav: rgb(238, 163, 135);
 */
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
 body {
   margin: 0;
-  font-family: 'Red Hat Display', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:rgb(255, 243, 240);
+  background-color:rgb(255, 255, 255);
 }
 
 code {
@@ -19,11 +20,12 @@ code {
     monospace;
 }
 
-/* GENERAL */
 div {
   border-radius: 18px;
 }
-button,input[type=submit] {
+
+
+/* button,input[type=submit] {
   border-radius: 18px;
   border-style: none;
   padding: 3%;
@@ -40,44 +42,18 @@ input[type=text] {
   width: 200px;
   border-style: none;
   border-radius: 10px;
-}
-label {
-  padding: 2%;
-}
+} */
 
-/* NAVBAR STYLING */
-.navbar {
-  padding: 3%;
-  background-color: rgb(238, 163, 135);
-  color: black;
-  border-radius: 0;
-}
-.employer-nav {
-  background-color: skyblue;
-
-}
-.caregiver-nav {
-  background-color:rgb(114, 140, 216);
-}
-.nav-item {
-  font-size: 100%;
-  font-weight: 700;
-  padding: 1px;
-  margin:3%;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
+.small-nav {
+  font-size: 130%;
+  font-weight: 500;
+  margin-left: 15%;
 }
 .main-nav {
-  margin-left: 0px;
-  font-size: 200%;;
+  font-size: 250%;;
   font-weight: 900;
   color: white
 }
-.active-item {
-  font-size: large;
-}
-
-/* FORMS */
 .login-page {
   font-size: large;
   text-align: center;
@@ -85,19 +61,24 @@ label {
   margin: auto;
   margin-top: 5%;
   margin-bottom: 5%;
-  padding: 2%;
-  padding-bottom: 8%;
-  padding-top: 3%;
-  background-color: rgb(227, 173, 157);
 }
-.logout-question {
+.login-page h3 {
+  margin-top: 3%;
+  color:rgb(57, 163, 244);
+}
+.login-page input[type=text] {
+  width: 40%;
+}
+.login-page input[type=radio] {
+  margin-top: 5%;
+  width: 5%;
+}
+.logout-question p {
   float: right;
+  color:rgb(57, 163, 244);
   font-size: small;
-  padding: 0px;
-  margin-bottom: 3px;
+  padding: 8px;
 }
-
-/* PROFILE STYLING */
 
 .profile-info {
   font-size: larger;
@@ -143,7 +124,6 @@ label {
   border-color: black;
 }
 
-/* IMAGES */
 .profile-image {
   width:100px;
   height: 100px;;
@@ -151,13 +131,13 @@ label {
 
 }
 
-/* CALENDAR */
 .job-page {
   margin: 5%;
 }
 .job-list {
   width: 38%;
   margin:5%;
+  margin-right: 2%;
   float: left;
 }
 .job {
@@ -171,6 +151,7 @@ label {
 .job-form {
   float: right;
   margin: 5%;
+  margin-left: 3%;
   width: 38%;
   background-color:rgb(227, 173, 157);
   text-align: center;
@@ -186,8 +167,15 @@ label {
   width: 26%;
   margin-left: 1%;
 }
+.create-job-button {
+  float: right;
+  margin: 5%;
+  width: 40%;
+  background-color:rgb(159, 206, 152);
+  text-align: center;
+  padding: 2%;
+}
 
-/* ALERTS */
 .alerts-page {
   margin: 5%;
 }
@@ -203,8 +191,6 @@ label {
   margin-right: 20%;
 
 } 
-
-/* MESSAGES */
 
 .positive-message {
   width: 70%;

@@ -6,8 +6,8 @@ const MyProfile = ( { user, jobs, loadData }) => {
 
     return (
         <div>
-            <ProfileInfo user={user} loadData={loadData}/>
-            <ProfileJobsContainer user={user} jobs={jobs}/>
+            <div className="column"><ProfileInfo user={user} loadData={loadData}/></div>
+            <div className="column"><ProfileJobsContainer user={user} jobs={jobs}/></div>
         </div>
         )
 }

@@ -46,13 +46,14 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
 
     function handleButtonChange(e) {
         setSelectedUserType(e.target.value)
+        e.target.classList.add('is-primary');
     }
 
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <h2>Log Into ImAway</h2>
+                <h1><strong>Log Into ImAway</strong></h1>
                 <h3>username:</h3>
                 <input 
                     id="username"
@@ -71,16 +72,7 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
                 </input>
 
                 <h3>I am a:</h3>
-                <label>
-                    <input 
-                        type="radio" 
-                        value="caregiver" 
-                        checked={selectedUserType === "caregiver"} 
-                        className="select-login-type"
-                        onChange={handleButtonChange}>
-                    </input>
-                    Caregiver
-                </label>
+                    <button className="button" onClick={handleButtonChange} value="caregiver">Caregiver</button>
                 <label>
                     <input 
                         type="radio" 

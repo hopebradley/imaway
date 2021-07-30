@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState , useEffect } from 'react';
 
-const OtherCaregiver = ( { params, loadData, caregivers}) => {
+const OtherEmployer = ( { params, loadData, employers }) => {
 
     function displayProfile() {
-        const user = caregivers.find(c => c.id == params.user_id);
+        const user = employers.find(c => c.id == params.user_id);
         return (
             <div className="profile-info">
                 <img src={user.img_url} className="profile-image" alt="profile"></img>
@@ -23,4 +23,4 @@ const OtherCaregiver = ( { params, loadData, caregivers}) => {
 
 }
 
-export default OtherCaregiver;
+export default OtherEmployer;

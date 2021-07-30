@@ -50,11 +50,11 @@ const JobForm = ( { user, loadData }) => {
   }
 
   function displayForm() {
-    if (!creatingJob) {
-      return <button onClick={handleClick}>Create a Job</button>
+    if (!creatingJob ) {
+      return <button className="create-job-button" onClick={handleClick}>Create a Job</button>
     } else {
       return (
-        <div>
+        <div className="job-form">
           <form onSubmit={handleSubmit}>
             <h3>Title</h3>
             <input 
@@ -79,15 +79,19 @@ const JobForm = ( { user, loadData }) => {
             <DatePicker
                   selected={startDate} 
                   onChange={date => setStartDate(date)}
+                  isOpen={false}
             />
             <p>Time:</p>
-            <input
+            <TimePicker 
+            value={startTime}
+            onChange={(time) => setStartTime(time)}/>
+            {/* <input
               className="time"
               type="text"
               placeholder="HH:MM"
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}>
-            </input>
+            </input> */}
             <br></br>
             <h3>End Date:</h3>
             <DatePicker
@@ -128,7 +132,7 @@ const JobForm = ( { user, loadData }) => {
 
 
     return (
-        <div className='job-form'>
+        <div>
             {displayForm()}
         </div>
     )

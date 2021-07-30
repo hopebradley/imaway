@@ -2,14 +2,14 @@ import React from 'react';
 import JobsContainer from '../containers/JobsContainer';
 import JobForm from '../forms/JobForm';
 
-const CalendarPage = ( { jobs, user, loadData } ) => {
+const JobPage = ( { jobs, user, loadData } ) => {
 
     return (
         <div className="jobs-page">
             <JobsContainer jobs={jobs} user={user} loadData={loadData} />
-            <JobForm user={user} loadData={loadData}/>
+            {user.status === "employer" ? <JobForm user={user} loadData={loadData}/> : null}
         </div>
     )
 }
 
-export default CalendarPage;
+export default JobPage;

@@ -6,8 +6,8 @@ import HomePage from './pages/HomePage';
 import NavBar from './components/NavBar'
 import MyProfile from './pages/MyProfile';
 import OtherCaregiver from './pages/OtherCaregiver';
-import CalendarPage from './pages/CalendarPage';
-import AlertsPage from './pages/AlertsPage';
+import OtherEmployer from './pages/OtherEmployer';
+import JobPage from './pages/JobPage';
 
 function App() {
 
@@ -21,16 +21,11 @@ function App() {
 
   useEffect(() => {
     loadData();
-  }, []);
-
-  const loadData = () => {
-    loadUser();
-    loadJobs();
-    loadAlerts();
     loadCaregivers();
     loadEmployers();
-  }
-  // ABOVE FUNCTION COMBINES ALL THE BELOW THREE
+  }, []);
+
+
   const loadUser = () => {
     fetch('/employer')
     .then(resp => {
@@ -76,6 +71,12 @@ function App() {
     .then(resp => resp.json())
     .then(data => setAllEmployers(data));
   }
+  const loadData = () => {
+    loadUser();
+    loadJobs();
+    loadAlerts();
+  }
+
 
   if (!loggedIn) return <LoginPage setUser={setUser} setLoggedIn={setLoggedIn}/>;
 
@@ -83,11 +84,15 @@ function App() {
     <Router>
       <div>
         <NavBar loggedIn={loggedIn} setUser={setUser} setLoggedIn={setLoggedIn} user={user}/>
+
+        
         <Route exact path="/" render={() => <HomePage user={user}  />}/>
-        <Route exact path="/jobs" render={() => <CalendarPage jobs={jobs} user={user} loadData={loadData} />}/>
-        <Route exact path="/alerts" render={() => <AlertsPage jobs={jobs} user={user} loadData={loadData} alerts={alerts}/>}/>
+        <Route exact path="/jobs" render={() => <JobPage jobs={jobs} user={user} loadData={loadData} />}/>
         <Route exact path="/profile" render={() => <MyProfile user={user} jobs={jobs} loadData={loadData}/>}/>
+
+        {/* routes for viewing others' profiles */}
         <Route exact path="/caregivers/:user_id" render={(routerProps) => <OtherCaregiver params={routerProps.match.params} loadData={loadData} caregivers={allCaregivers}/>}/>
+        <Route exact path="/employers/:user_id" render={(routerProps) => <OtherEmployer params={routerProps.match.params} loadData={loadData} employers={allEmployers}/>}/>
       </div>
     </Router>
   );

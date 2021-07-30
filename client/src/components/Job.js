@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AlertsPage from '../pages/AlertsPage';
+import { Link } from 'react-router-dom';
 
 const Job = ( { job, user, loadData } ) => {
 
@@ -49,22 +50,23 @@ const Job = ( { job, user, loadData } ) => {
 
     function displayJob() {
         if (user.status === "caregiver") {
+            const linkName = "/employers/"+job.employer.id;
             return (
-                <div className="job">
-                    <h3>{job.employer.name}</h3>
+                <div className="box">
                     <h3>{job.title}</h3>
+                    <Link to={linkName}><p>{job.employer.name}</p></Link>
                     <h3>{job.category}</h3>
                     <p><strong>Starts:</strong> {start}</p>
                     <p><strong>Ends:</strong> {end}</p>
                     {job.caregiver ? <p>Caregiver: <strong>{job.caregiver.name}</strong></p> : "POSITION OPEN"}
                     <p>${job.salary} {job.salary_type}</p>
-                    {user.status === "caregiver" ? <button onClick={handleInterestButtonClick}>{interestButtonText}</button> : null}
+                    {user.status === "caregiver" ? <button className="button is-info" onClick={handleInterestButtonClick}>{interestButtonText}</button> : null}
                 </div>
 
             )
         } else {
             return (
-                <div className="job">
+                <div className="box">
                     <h3>{job.title}</h3>
                     <h3>{job.category}</h3>
                     <p><strong>Starts:</strong> {start}</p>
