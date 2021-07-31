@@ -1,9 +1,9 @@
-import React, { useState , useEffect } from 'react';
+import React from 'react';
 
 const OtherEmployer = ( { params, loadData, employers }) => {
 
     function displayProfile() {
-        const user = employers.find(c => c.id == params.user_id);
+        const user = employers.find(c => c.id.toString() === params.user_id);
         return (
             <div className="profile-info">
                 <img src={user.img_url} className="profile-image" alt="profile"></img>

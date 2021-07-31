@@ -23,7 +23,6 @@ code {
 div {
   border-radius: 18px;
 }
-
 .small-nav {
   font-size: 130%;
   font-weight: 500;
@@ -91,6 +90,52 @@ div {
   font-weight: 500;
   color:rgb(113, 174, 227);
 }
+.job-list {
+  width: 80%;
+  margin:auto;
+}
+.job-list h1 {
+  font-size: 200%;
+  font-weight: 800;
+}
+.job-form h1 {
+  font-size: 200%;
+  font-weight: 800;
+}
+.job {
+  width: 46%;
+  float: left;
+  margin: 2%;
+  padding: 2%;
+  border-color:rgb(57, 163, 244);
+  border-style:solid;
+  border-width: 1px;
+}
+.job .button {
+  margin-left: 1%;
+}
+.job-form {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  padding: 2%;
+  font-size: 100%;
+}
+.job-form input[type=text] {
+  margin: 1%;
+}
+.job-form input[type=submit] {
+  width: 20%;
+}
+.form-section {
+  margin: 5%;
+  padding: 2%;
+  width: 90%;
+}
+.time-field {
+  text-align: center;
+  width: 200px;
+}
 
 /* .profile-info {
   font-size: larger;
@@ -146,29 +191,9 @@ div {
 .job-page {
   margin: 5%;
 }
-.job-list {
-  width: 38%;
-  margin:5%;
-  margin-right: 2%;
-  float: left;
-}
-.job {
-  margin-bottom: 3%;
-  padding: 2%;
-  background-color:white;
-  border-width: 3px;
-  border-color: rgb(238, 163, 135);
-  border-style:solid; 
-}
-.job-form {
-  float: right;
-  margin: 5%;
-  margin-left: 3%;
-  width: 38%;
-  background-color:rgb(227, 173, 157);
-  text-align: center;
-  padding: 2%;
-}
+
+
+
 .job-form input.date-month {
   width: 8%;
 }

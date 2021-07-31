@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import TimePicker from 'react-time-picker';
 import "react-datepicker/dist/react-datepicker.css";
 
 const JobForm = ( { user, loadData }) => {
@@ -51,88 +50,100 @@ const JobForm = ( { user, loadData }) => {
 
   function displayForm() {
     if (!creatingJob ) {
-      return <button className="create-job-button" onClick={handleClick}>Create a Job</button>
+      return <button className="button" onClick={handleClick}>Create a Job</button>
     } else {
       return (
-        <div className="job-form">
+        <div className="box">
+          <h1>Post A Job</h1>
           <form onSubmit={handleSubmit}>
-            <h3>Title</h3>
-            <input 
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}>
-            </input>
-            <br></br>
-            <h3>What type of care do you need?</h3>
-            <select
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}>
-              <option disabled>Select One</option>
-              <option>Children</option>
-              <option>Pets</option>
-              <option>Plants</option>
-              <option>House</option>
-              <option>Other</option>
-            </select>
-            <br></br>
-            <h3>Start Date:</h3>
-            <DatePicker
-                  selected={startDate} 
-                  onChange={date => setStartDate(date)}
-                  isOpen={false}
-            />
-            <p>Time:</p>
-            <TimePicker 
-            value={startTime}
-            onChange={(time) => setStartTime(time)}/>
-            {/* <input
-              className="time"
-              type="text"
-              placeholder="HH:MM"
-              value={startTime}
-              onChange={(e) => setStartTime(e.target.value)}>
-            </input> */}
-            <br></br>
-            <h3>End Date:</h3>
-            <DatePicker
-                  selected={endDate} 
-                  onChange={date => setEndDate(date)}
-            />
-            <p>Time:</p>
-            <input
-              className="time"
-              type="text"
-              placeholder="HH:MM"
-              value={endTime}
-              onChange={(e) => setEndTime(e.target.value)}>
-            </input>
-            <br></br>
-            <h3>Pay</h3>
-            $<input 
-              type="text"
-              value={salary}
-              onChange={(e) => setSalary(e.target.value)}>
-            </input>
-            <select
-              value={salaryType} 
-              onChange={(e) => setSalaryType(e.target.value)}>
-              <option disabled>Select One</option>
-              <option>Per Hour</option>
-              <option>Per Day</option>
-              <option>Flat Rate</option>
-            </select>
-            <br></br>
-            <br></br>
-            <input type="submit"></input>
+            <div className="columns">
+              <div className="column">
+                <div className="form-section">
+                  <h3>Title</h3>
+                  <input 
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}>
+                  </input>
+                  <br></br>
+                </div>
+                <div className="form-section">
+                  <h3>What type of care do you need?</h3>
+                  <select
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}>
+                    <option disabled>Select One</option>
+                    <option>Children</option>
+                    <option>Pets</option>
+                    <option>Plants</option>
+                    <option>House</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div className="form-section">
+                  <h3>Pay</h3>
+                  $<input 
+                    type="text"
+                    value={salary}
+                    onChange={(e) => setSalary(e.target.value)}>
+                  </input>
+                  <select
+                    value={salaryType} 
+                    onChange={(e) => setSalaryType(e.target.value)}>
+                    <option disabled>Select One</option>
+                    <option>Per Hour</option>
+                    <option>Per Day</option>
+                    <option>Flat Rate</option>
+                  </select>
+                </div>
+              </div>
+              <div className="column">
+                <div className="form-section">
+                  <h3>Starts:</h3>
+                  <DatePicker
+                        className="time-field"
+                        selected={startDate} 
+                        onChange={date => setStartDate(date)}
+                        isOpen={false}/>
+                  <div className="form-section">
+                    <input
+                      type="text"
+                      className="time-field"
+                      placeholder="2:30PM"
+                      value={startTime}
+                      onChange={(e) => setStartTime(e.target.value)}></input>
+                  </div>
+                </div>
+                <div className="form-section">
+                  <h3>End Date:</h3>
+                  <DatePicker
+                        className="time-field"
+                        selected={endDate} 
+                        onChange={date => setEndDate(date)}/>
+                </div>
+                <div className="form-section">
+                  <input 
+                    type="text"
+                    className="time-field"
+                    placeholder="5:00PM"
+                    value={endTime}
+                    onChange={(e) => setEndTime(e.target.value)}></input>
+                </div>
+              </div>     
+            </div>
+            <input className="button is-info is-light is-outlined" type="submit"></input>
           </form>
-        </div>
+        
+
+            </div>
+            
       )
     }
   }
 
 
     return (
-        <div>
+        <div className="job-form">
             {displayForm()}
         </div>
     )

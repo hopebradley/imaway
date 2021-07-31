@@ -14,41 +14,12 @@ const NavBar = ({ loggedIn, setLoggedIn, setUser, user, userType }) => {
     });
   }
 
-  function displayNavBar() {
-    if (user.status === "caregiver") {
-      return (
-        <div className="navbar caregiver-nav">
-          <NavLink className="nav-item main-nav" activeClassName="active-item" to="/"exact>ImAway</NavLink>
-          <NavLink className="nav-item" activeClassName="active-item" to="/jobs">Look For Jobs</NavLink>
-          {/* <NavLink className="nav-item" activeClassName="active-item" to="/alerts">Alerts</NavLink> */}
-          <NavLink className="nav-item" activeClassName="active-item" to="/profile">Profile</NavLink>
-          <div className="logout-question">
-            <p>{user.name} - {user.status}</p>
-            <Link to="/"><button onClick={handleLogoutClick}>logout</button></Link>
-          </div>
-        </div>
-
-      )
-      
-    } else {
-      return (
-        <div className="navbar caregiver-nav">
-          <NavLink className="nav-item main-nav" activeClassName="active-item" to="/"exact>ImAway</NavLink>
-          <NavLink className="nav-item" activeClassName="active-item" to="/jobs">My Jobs</NavLink>
-          <NavLink className="nav-item" activeClassName="active-item" to="/profile">Profile</NavLink>
-          <div className="logout-question">
-            <p>{user.name} - {user.status}</p>
-            <Link to="/"><button onClick={handleLogoutClick}>logout</button></Link>
-          </div>
-        </div>
-      )
-
-    }
-  }
+  let jobLinkName;
+  user.status === "caregiver" ? jobLinkName = "Look For Jobs" : jobLinkName = "My Jobs";
 
   return (
     <div>
-      <nav className="navbar is-info is-spaced has-background-link-light" role="navigation" aria-label="main navigation">
+      <nav className="navbar is-info is-spaced has-background-link-light" role="navigation" aria-label="main navigation" data-target="navbarBasicExample">
         <div className="navbar-brand">
           <a className="navbar-item main-nav has-text-link" href="/">
             <h1><strong>ImAway</strong></h1>
@@ -61,10 +32,10 @@ const NavBar = ({ loggedIn, setLoggedIn, setUser, user, userType }) => {
           </a>
         </div>
 
-        <div  className="navbar-menu">
+        <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
             <a className="navbar-item small-nav has-text-info" href="/jobs">
-              Look For Jobs
+              {jobLinkName}
             </a>
 
             <a className="navbar-item small-nav has-text-info" href="/profile">

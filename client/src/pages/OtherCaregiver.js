@@ -3,7 +3,7 @@ import React from 'react';
 const OtherCaregiver = ( { params, loadData, caregivers}) => {
 
     function displayProfile() {
-        const user = caregivers.find(c => c.id == params.user_id);
+        const user = caregivers.find(c => c.id.toString() === params.user_id);
         return (
             <div className="profile-info">
                 <img src={user.img_url} className="profile-image" alt="profile"></img>

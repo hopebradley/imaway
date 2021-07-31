@@ -13,7 +13,7 @@ const ProfileJob = ( { job, user, loadData } ) => {
                     You are scheduled for the job
                     <strong> {job.title} </strong>
                     for 
-                    <strong> {job.employer.name}</strong>
+                    <Link to={linkName}><strong>{job.employer.name}</strong></Link>
                 </div>
             )
         } else {

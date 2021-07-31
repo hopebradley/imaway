@@ -14,17 +14,8 @@ function App() {
   const [ loggedIn, setLoggedIn ] = useState(false);
   const [ user, setUser ] = useState({});
   const [ jobs, setJobs ] = useState([]);
-  const [ alerts, setAlerts ] = useState([]);
   const [ allCaregivers, setAllCaregivers ] = useState([]);
   const [ allEmployers, setAllEmployers ] = useState([]);
-
-
-  useEffect(() => {
-    loadData();
-    loadCaregivers();
-    loadEmployers();
-  }, []);
-
 
   const loadUser = () => {
     fetch('/employer')
@@ -54,13 +45,6 @@ function App() {
         setJobs(data);
     });
   }
-  const loadAlerts = () => {
-    fetch('/alerts')
-    .then(resp => resp.json())
-    .then(data => {
-        setAlerts(data);
-    });
-  }
   const loadCaregivers = () => {
     fetch('/caregivers')
     .then(resp => resp.json())
@@ -74,8 +58,13 @@ function App() {
   const loadData = () => {
     loadUser();
     loadJobs();
-    loadAlerts();
+    loadCaregivers();
+    loadEmployers();
   }
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
 
   if (!loggedIn) return <LoginPage setUser={setUser} setLoggedIn={setLoggedIn}/>;
@@ -83,7 +72,7 @@ function App() {
   return (
     <Router>
       <div>
-        <NavBar loggedIn={loggedIn} setUser={setUser} setLoggedIn={setLoggedIn} user={user}/>
+        <NavBar loggedIn={loggedIn} setUser={setUser} user={user}/>
 
         
         <Route exact path="/" render={() => <HomePage user={user}  />}/>

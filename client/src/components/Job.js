@@ -52,7 +52,7 @@ const Job = ( { job, user, loadData } ) => {
         if (user.status === "caregiver") {
             const linkName = "/employers/"+job.employer.id;
             return (
-                <div className="box">
+                <div className="job box">
                     <h3>{job.title}</h3>
                     <Link to={linkName}><p>{job.employer.name}</p></Link>
                     <h3>{job.category}</h3>
@@ -66,16 +66,25 @@ const Job = ( { job, user, loadData } ) => {
             )
         } else {
             return (
-                <div className="box">
+                <div className="job box">
+                    <div className="column">
+
+                    </div>
                     <h3>{job.title}</h3>
                     <h3>{job.category}</h3>
-                    <p><strong>Starts:</strong> {start}</p>
-                    <p><strong>Ends:</strong> {end}</p>
+                    <div className="columns">
+                        <div className="column">
+                            <p><strong>Starts:</strong> {start}</p>
+                        </div>
+                        <div className="column">
+                            <p><strong>Ends:</strong> {end}</p>
+                        </div>
+                    </div>
                     <p>${job.salary} {job.salary_type}</p>
                     {job.caregiver ? <p>Caregiver: <strong>{job.caregiver.name}</strong></p> : <p><strong>POSITION OPEN</strong></p>}
                     <br></br>
-                    <button>Edit Job</button>
-                    <button onClick={handleDeleteButtonClick}>Delete Job</button>
+                    <button className="button is-light is-info is-outlined">Edit Job</button>
+                    <button className="button is-light is-danger is-outlined" onClick={handleDeleteButtonClick}>Delete Job</button>
                     {jobDeleted ? <p className="red-message">Deleting...</p> : null}
                     <AlertsPage job={job} user={user} loadData={loadData}/>
                 </div>
