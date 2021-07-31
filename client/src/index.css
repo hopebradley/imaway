@@ -24,9 +24,9 @@ div {
   border-radius: 18px;
 }
 .small-nav {
-  font-size: 130%;
+  font-size: 120%;
   font-weight: 500;
-  margin-left: 15%;
+  margin-left: 10%;
 }
 .main-nav {
   font-size: 250%;;
@@ -57,7 +57,6 @@ div {
   border-radius: 10px;
   border-width: 1px;
 }
-
 .login-page input[type=submit] {
   width: 20%;
   margin-top: 3%;
@@ -93,10 +92,12 @@ div {
 .job-list {
   width: 80%;
   margin:auto;
+  margin-bottom: 2%;
 }
 .job-list h1 {
   font-size: 200%;
   font-weight: 800;
+  margin-left:2%;
 }
 .job-form h1 {
   font-size: 200%;
@@ -115,56 +116,92 @@ div {
   margin-left: 1%;
 }
 .job-form {
-  margin: auto;
+  margin: 10%;
+  margin-top: 0%;
   width: 80%;
   text-align: center;
-  padding: 2%;
+  padding: 1%;
   font-size: 100%;
+  float:left;
 }
-.job-form input[type=text] {
+.job-form input[type=text] .job-title {
+  margin: 1%;
+  width: 100%;
+}
+.job-form input[type=text] .salary {
+  margin: 1%;
+  width: 50px;
+}
+.job-form .button .create-job{
+  width: 100%;
   margin: 1%;
 }
-.job-form input[type=submit] {
-  width: 20%;
+.job-form .button {
+  width: 30%;
+  margin: 1%;
 }
 .form-section {
-  margin: 5%;
-  padding: 2%;
-  width: 90%;
+  margin: 3%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  width: 100%;
 }
 .time-field {
   text-align: center;
   width: 200px;
 }
-
-/* .profile-info {
-  font-size: larger;
+.profile-image {
+  width:100px;
+  height: 100px;;
+  border-radius: 50%;
+}
+.profile-info {
   float: left;
   margin: 5%;
-  width: 30%;
-  background-color: white;
+  width: 90%;
   padding: 3%;
-  border-width: 3px;
-  border-color: rgb(238, 163, 135);;
-  border-style:solid;
-}
-
-.profile-jobs {
-  float: right;
-  width: 30%;
-  margin: 5%;
-  padding: 3%;
-  background-color:white;
-  border-width: 3px;
-  border-color: rgb(238, 163, 135);;
-  border-style:solid;
 }
 .profile-job {
   margin: 2%;
   margin-bottom: 5%;
-  background-color: rgb(168, 232, 200);
   padding: 5%;
 }
+.profile-job h3 {
+  font-size: 20px;
+}
+.profile-jobs {
+  float: right;
+  width: 100%;
+  margin: 5%;
+  padding: 3%;
+}
+.profile-jobs h2 {
+  margin-left: 2%;
+  font-size: 25px;
+}
+/* .blog-showcase {
+  margin-top: 10%;
+}
+.blog-showcase .column {
+  background-color:rgb(191, 226, 240);
+  margin: 2%;;
+}
+.blog-showcase .columns {
+  width: 80%;
+  margin: auto;
+}
+.blog-showcase .box {
+  width: 40%;
+  margin: 10%;
+}
+.blog-showcase .button {
+  margin-left: 25%;
+} */
+
+
+
+/*
+
 .edit-profile-form input[type=text] {
   font-size: 100%;
   color: black;
@@ -181,12 +218,7 @@ div {
   border-color: black;
 }
 
-.profile-image {
-  width:100px;
-  height: 100px;;
-  border-radius: 50%;
 
-}
 
 .job-page {
   margin: 5%;
@@ -247,5 +279,3 @@ div {
   border-radius: 20px;
 
 } */
-
-

@@ -42,7 +42,7 @@ const ProfileInfo = ( { user, loadData }) => {
         }
         else {
             return (
-                <div>
+                <div className="box">
                     <img src={user.img_url} className="profile-image" alt="profile"></img>
                     <h1>{user.name}</h1>
                     <h4>{user.status}</h4>

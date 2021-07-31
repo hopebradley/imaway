@@ -50,7 +50,7 @@ const JobForm = ( { user, loadData }) => {
 
   function displayForm() {
     if (!creatingJob ) {
-      return <button className="button" onClick={handleClick}>Create a Job</button>
+      return <button className="button is-primary is-medium create-job" onClick={handleClick}>Create a Job</button>
     } else {
       return (
         <div className="box">
@@ -61,6 +61,7 @@ const JobForm = ( { user, loadData }) => {
                 <div className="form-section">
                   <h3>Title</h3>
                   <input 
+                    className="job-title"
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}>
@@ -68,7 +69,7 @@ const JobForm = ( { user, loadData }) => {
                   <br></br>
                 </div>
                 <div className="form-section">
-                  <h3>What type of care do you need?</h3>
+                  <h3>Type of care:</h3>
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}>
@@ -83,6 +84,7 @@ const JobForm = ( { user, loadData }) => {
                 <div className="form-section">
                   <h3>Pay</h3>
                   $<input 
+                    className="salary"
                     type="text"
                     value={salary}
                     onChange={(e) => setSalary(e.target.value)}>
@@ -131,7 +133,8 @@ const JobForm = ( { user, loadData }) => {
                 </div>
               </div>     
             </div>
-            <input className="button is-info is-light is-outlined" type="submit"></input>
+            <input className="button is-success is-light is-outlined" type="submit"></input>
+            <button className="button is-danger is-outlined" onClick={()=>setCreatingJob(false)}>Cancel</button>
           </form>
         
 

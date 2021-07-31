@@ -72,9 +72,9 @@ function App() {
   return (
     <Router>
       <div>
-        <NavBar loggedIn={loggedIn} setUser={setUser} user={user}/>
-
+        <NavBar setLoggedIn={setLoggedIn} loggedIn={loggedIn} setUser={setUser} user={user}/>
         
+
         <Route exact path="/" render={() => <HomePage user={user}  />}/>
         <Route exact path="/jobs" render={() => <JobPage jobs={jobs} user={user} loadData={loadData} />}/>
         <Route exact path="/profile" render={() => <MyProfile user={user} jobs={jobs} loadData={loadData}/>}/>
