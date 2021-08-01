@@ -48,6 +48,6 @@ class AlertsController < ApplicationController
     private
 
     def alert_params
-        params.permit(:contents, :type, :sender_id, :job_id)
+        params.permit(:contents, :receiver_id, :sender_id, :job_id)
     end
 end

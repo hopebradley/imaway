@@ -9,6 +9,7 @@ const Job = ( { job, user, loadData } ) => {
 
     function handleInterestButtonClick() {
         console.log("Hi")
+        console.log(job.employer.id)
         fetch('/alerts', {
             method: "POST",
             headers: {

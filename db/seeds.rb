@@ -9,6 +9,7 @@
 Job.destroy_all
 Caregiver.destroy_all
 Employer.destroy_all
+Alert.destroy_all
 
 bio_text = "Pellentesque placerat, ante vitae viverra consequat, ipsum massa pellentesque tortor, 
             id consectetur elit odio ultrices lorem. Quisque non orci ullamcorper, tincidunt est viverra, 
