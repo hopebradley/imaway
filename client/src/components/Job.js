@@ -17,7 +17,8 @@ const Job = ( { job, user, loadData } ) => {
             body: JSON.stringify({
                 contents: "is interested in ",
                 sender_id: user.id,
-                job_id: job.id
+                job_id: job.id,
+                receiver_id: job.employer.id
             })
         })
         .then(resp => resp.json())

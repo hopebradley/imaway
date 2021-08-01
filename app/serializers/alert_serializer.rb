@@ -1,17 +1,25 @@
 class AlertSerializer < ActiveModel::Serializer
   belongs_to :job
-  attributes :id, :contents, :type, :job_id, :job, :employer, :potential_caregiver
+  attributes :id, :contents, :job_id, :sender_id, :receiver_id, :sender, :receiver, :job
 
   def job
     Job.find_by(id: object.job_id)
   end
 
-  def potential_caregiver
-    Caregiver.find_by(id: object.sender_id)
+  def sender
+    if Caregiver.find_by(id: object.sender_id)
+      Caregiver.find_by(id: object.sender_id)
+    else
+      Employer.find_by(id: object.sender_id)
+    end
   end
 
-  def employer
-    job = Job.find_by(id: object.job_id)
-    Employer.find_by(id: job.employer_id)
+  def receiver
+    if Caregiver.find_by(id: object.receiver_id)
+      Caregiver.find_by(id: object.receiver_id)
+    else
+      Employer.find_by(id: object.receiver_id)
+    end
   end
+
 end

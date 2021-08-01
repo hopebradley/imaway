@@ -3,7 +3,7 @@ import UpcomingJobsContainer from '../containers/UpcomingJobsContainer';
 import ProfileInfo from '../components/ProfileInfo';
 import AlertsContainer from '../containers/AlertsContainer';
 
-const MyProfile = ( { user, jobs, loadData }) => {
+const MyProfile = ( { alerts, user, jobs, loadData }) => {
 
     return (
         <div>
@@ -11,7 +11,7 @@ const MyProfile = ( { user, jobs, loadData }) => {
                 <div className="column"><ProfileInfo user={user} loadData={loadData}/></div>
                 <div className="column"><UpcomingJobsContainer user={user} jobs={jobs}/></div>
             </div>
-            <AlertsContainer user={user}/>
+            <AlertsContainer alerts={alerts} user={user} loadData={loadData}/>
         </div>
         )
 }
