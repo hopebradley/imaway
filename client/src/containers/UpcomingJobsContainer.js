@@ -1,7 +1,7 @@
 import React from 'react';
-import ProfileJob from '../components/ProfileJob';
+import UpcomingJob from '../components/UpcomingJob';
 
-const ProfileJobsContainer = ( {user, jobs, loadData} ) => {
+const UpcomingJobsContainer = ( {user, jobs, loadData} ) => {
 
     const caregiverJobs = jobs.filter(j => j.caregiver_id === user.id);
     const employerJobs = jobs.filter(j => j.employer_id = user.id && j.caregiver_id);
@@ -10,13 +10,13 @@ const ProfileJobsContainer = ( {user, jobs, loadData} ) => {
         if (user.status === "caregiver") {
             return (
                 <div>
-                    {caregiverJobs.length > 0 ? caregiverJobs.map(job => <ProfileJob key={job.id} job={job} user={user} loadData={loadData}/>) : <h3>None yet!</h3>}
+                    {caregiverJobs.length > 0 ? caregiverJobs.map(job => <UpcomingJob key={job.id} job={job} user={user} loadData={loadData}/>) : <h3>None yet!</h3>}
                 </div>
             )
         } else {
             return (
                 <div>
-                    {employerJobs.length > 0 ? employerJobs.map(job => <ProfileJob key={job.id} job={job} user={user} loadData={loadData}/>): <h3>None yet!</h3>}
+                    {employerJobs.length > 0 ? employerJobs.map(job => <UpcomingJob key={job.id} job={job} user={user} loadData={loadData}/>): <h3>None yet!</h3>}
                 </div>
 
             )
@@ -31,4 +31,4 @@ const ProfileJobsContainer = ( {user, jobs, loadData} ) => {
     )
 }
 
-export default ProfileJobsContainer;
+export default UpcomingJobsContainer;

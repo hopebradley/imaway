@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileJobsContainer from '../containers/ProfileJobsContainer';
+import UpcomingJobsContainer from '../containers/UpcomingJobsContainer';
 import ProfileInfo from '../components/ProfileInfo';
 
 const MyProfile = ( { user, jobs, loadData }) => {
@@ -7,7 +7,7 @@ const MyProfile = ( { user, jobs, loadData }) => {
     return (
         <div className="columns">
             <div className="column"><ProfileInfo user={user} loadData={loadData}/></div>
-            <div className="column"><ProfileJobsContainer user={user} jobs={jobs}/></div>
+            <div className="column"><UpcomingJobsContainer user={user} jobs={jobs}/></div>
         </div>
         )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ProfileJob = ( { job, user, loadData } ) => {
+const UpcomingJob = ( { job, user, loadData } ) => {
 
 
 
@@ -36,4 +36,4 @@ const ProfileJob = ( { job, user, loadData } ) => {
     )
 }
 
-export default ProfileJob;
+export default UpcomingJob;
