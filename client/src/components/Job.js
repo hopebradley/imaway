@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AlertsPage from '../pages/AlertsPage';
+import AlertsContainer from '../containers/AlertsContainer';
 import { Link } from 'react-router-dom';
 
 const Job = ( { job, user, loadData } ) => {
@@ -86,7 +86,7 @@ const Job = ( { job, user, loadData } ) => {
                     <button className="button is-light is-info is-outlined">Edit Job</button>
                     <button className="button is-light is-danger is-outlined" onClick={handleDeleteButtonClick}>Delete Job</button>
                     {jobDeleted ? <p className="red-message">Deleting...</p> : null}
-                    <AlertsPage job={job} user={user} loadData={loadData}/>
+                    <AlertsContainer job={job} user={user} loadData={loadData}/>
                 </div>
 
             )

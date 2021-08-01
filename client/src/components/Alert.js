@@ -29,11 +29,11 @@ const Alert = ( { alert, loadData }) => {
 
 
     return (
-        <div className="alert">
+        <div className="box alert">
             {alert.potential_caregiver.name + " " + alert.contents + " in your job "}
             <strong>{alert.job.title}</strong>
             <br></br>
-            <button onClick={handleAcceptClick}>Accept</button> <button onClick={handleRejectClick}>Reject</button>
+            <button className="button is-success is-light" onClick={handleAcceptClick}>Accept</button> <button className="button is-danger is-light" onClick={handleRejectClick}>Reject</button>
         </div>
     )
 }

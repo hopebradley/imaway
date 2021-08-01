@@ -158,7 +158,7 @@ div {
 .profile-info {
   float: left;
   margin: 5%;
-  width: 90%;
+  width: 95%;
   padding: 3%;
 }
 .profile-job {
@@ -171,13 +171,24 @@ div {
 }
 .profile-jobs {
   float: right;
-  width: 100%;
+  width: 95%;
   margin: 5%;
   padding: 3%;
 }
 .profile-jobs h2 {
   margin-left: 2%;
   font-size: 25px;
+}
+.alerts-page {
+  margin: 5%;
+  margin-top: 0px;
+}
+.alerts-page h1 {
+  font-size: 25px;
+}
+.alert {
+  padding: 3%;
+  width: 40%;
 }
 /* .blog-showcase {
   margin-top: 10%;
@@ -245,17 +256,8 @@ div {
   padding: 2%;
 }
 
-.alerts-page {
-  margin: 5%;
-}
-.alert {
-  margin-bottom: 3%;
-  padding: 1%;
-  background-color:white;
-  border-width: 3px;
-  border-color: rgb(179, 132, 132);
-  border-style:solid; 
-}
+
+
 .alert button {
   margin-right: 20%;
 
