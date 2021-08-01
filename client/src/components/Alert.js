@@ -22,7 +22,7 @@ const Alert = ( { alert, loadData }) => {
                     contents: "has accepted your request for ",
                     sender_id: alert.receiver_id,
                     job_id: alert.job.id,
-                    receiver_id: alert.sender_id
+                    receiver_id: alert.sender.id
                 })
             })
         })
@@ -41,6 +41,7 @@ const Alert = ( { alert, loadData }) => {
         })
         .then(() => loadData())
         .then(() => {
+            console.log("this is posting")
             fetch('/alerts', {
                 method: "POST",
                 headers: {
@@ -66,18 +67,22 @@ const Alert = ( { alert, loadData }) => {
     function displayAlert() {
         if (alert.receiver.status === "employer") {
             return (
-                <div className="box alert">
+                <div className="box alert neutral">
                     {alert.sender.name + " " + alert.contents}
                     <strong>{alert.job.title}</strong>
+                    <br></br>
                     <br></br>
                     <button className="button is-success is-light" onClick={handleAcceptClick}>Accept</button> <button className="button is-danger is-light" onClick={handleRejectClick}>Reject</button>
                 </div>
             )
         } else {
+            let alertClass = "";
+            alert.contents === "has rejected your request for " ? alertClass = "box alert bad" : alertClass = "box alert good";
             return (
-                <div className="box alert">
+                <div className={alertClass}>
                     {alert.sender.name + " " + alert.contents}
                     <strong>{alert.job.title}</strong>
+                    <br></br>
                     <br></br>
                     <button className="button is-info is-light" onClick={handleClearClick}>Clear</button>
                 </div>

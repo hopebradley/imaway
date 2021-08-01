@@ -8,6 +8,7 @@ import MyProfile from './pages/MyProfile';
 import OtherCaregiver from './pages/OtherCaregiver';
 import OtherEmployer from './pages/OtherEmployer';
 import JobPage from './pages/JobPage';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -84,13 +85,14 @@ function App() {
         <NavBar setLoggedIn={setLoggedIn} loggedIn={loggedIn} setUser={setUser} user={user}/>
         
 
-        <Route exact path="/" render={() => <HomePage user={user}  />}/>
+        <Route exact path="/" render={() => <HomePage user={user}jobs={jobs} loadData={loadData} />}/>
         <Route exact path="/jobs" render={() => <JobPage jobs={jobs} user={user} loadData={loadData} alerts={alerts}/>}/>
         <Route exact path="/profile" render={() => <MyProfile user={user} jobs={jobs} loadData={loadData} alerts={alerts}/>}/>
 
         {/* routes for viewing others' profiles */}
         <Route exact path="/caregivers/:user_id" render={(routerProps) => <OtherCaregiver params={routerProps.match.params} loadData={loadData} caregivers={allCaregivers}/>}/>
         <Route exact path="/employers/:user_id" render={(routerProps) => <OtherEmployer params={routerProps.match.params} loadData={loadData} employers={allEmployers}/>}/>
+        <Footer />
       </div>
     </Router>
   );

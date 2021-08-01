@@ -46,10 +46,10 @@ const ProfileInfo = ( { user, loadData }) => {
                     <img src={user.img_url} className="profile-image" alt="profile"></img>
                     <h1>{user.name}</h1>
                     <h4>{user.status}</h4>
-                    <h3>@{user.username}</h3>
+                    <h3><strong>@{user.username}</strong></h3>
                     <p>{user.bio}</p>
                     <br></br>
-                    <button onClick={() => setEditingProfile(true)}>EDIT PROFILE</button>
+                    <button className="button is-info is-light is-outlined" onClick={() => setEditingProfile(true)}>EDIT PROFILE</button>
                 </div>
             )
         }

@@ -25,7 +25,7 @@ const UpcomingJobsContainer = ( {user, jobs, loadData} ) => {
 
     return (
         <div className="profile-jobs">
-            <h2>Upcoming:</h2>
+            <h1 className="title-text">Upcoming:</h1>
             {displayProfileJobs()}
         </div>
     )

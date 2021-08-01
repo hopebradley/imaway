@@ -5,11 +5,11 @@ const OtherEmployer = ( { params, loadData, employers }) => {
     function displayProfile() {
         const user = employers.find(c => c.id.toString() === params.user_id);
         return (
-            <div className="box profile-info">
+            <div className="box other-profile">
                 <img src={user.img_url} className="profile-image" alt="profile"></img>
-                <h1>{user.name}</h1>
+                <h1 className="title-text">{user.name}</h1>
                 <h4>{user.status}</h4>
-                <h3>@{user.username}</h3>
+                <h3><strong>@{user.username}</strong></h3>
                 <p>{user.bio}</p>
             </div>
         )
