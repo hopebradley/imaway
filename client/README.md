@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# IMAWAY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+ImAway is a simple interface that allows for the scheduling of jobs between employers and caregivers. 
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+After forking and cloning this repository, run:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `bundle install`
+### `rails db:migrate`
+### `npm install --prefix client`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Seeding the database is optional. If you would like to see example users and jobs upon starting the app, run:
 
-### `npm test`
+### `rails db:seed`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you skip this step, you can sign up users and create jobs of your choosing to see the app in action.
 
-### `npm run build`
+## Running the App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To start the backend on [https://localhost:3000], run:
+### `rails s`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To start the frontend on [https://localhost:4000], run:
+### `npm start --prefix client`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Running 
+### `rails start` 
+will run the frontend and backend together with one command.
 
-### `npm run eject`
+## Use
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+When the app is opened, there will be a login page. When you sign up for ImAway, you’ll be taken to the home page where you can use the navigation bar to view jobs, your profile, and others’ profiles. As a caregiver, you can view available jobs and express your interest in them to send an alert to the employer, who can either accept or reject your request. Once you are assigned to a job, you can view all upcoming jobs in your profile. As an employer, you can create a job and accept or reject any caregivers who request it. This will send them an alert and add your job to your “upcoming” section in your profile. To view another person’s profile, click their name where it appears on the respective job.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contact Me:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Hope Bradley
+<br>
+Email: hope.e.bradley@gmail.com
+<br>
+LinkedIn: https://www.linkedin.com/in/hopebradl3y/
+<br>
+Blog: <a href="https://hopebradley.com">hopebradley.com</a>
