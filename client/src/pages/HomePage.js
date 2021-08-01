@@ -1,13 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UpcomingJobsContainer from '../containers/UpcomingJobsContainer';
 
 
 const HomePage = ( {user, jobs, loadData}) => {
 
+    const [ phoneNumber, setPhoneNumber ] = useState("");
+
     let usersName = user.name;
 
     if (user.name) {
         usersName = user.name.split(" ")[0];
+    }
+
+    function handlePhoneSubmit() {
+        fetch('/'+user.status+"s"+user.id, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                phone_number: phoneNumber
+            })
+        })
+        .then(() => {
+            loadData();
+        })
+
+    }
+
+    function displayPhoneQuestion() {
+        return (
+            <div className="message is-medium is-info phone-question">
+                <div className="message-header">
+                    <p>Do you want to receive text alerts from ImAway?</p>
+                    <button className="delete" aria-label="delete"></button>
+                </div>
+                <div className="message-body">
+                    <p>Add your phone number to your profile and recieve messages when {user.status === "caregiver" ? "you are accepted or rejected from a job!" : "someone expresses interest in one of your postings!"}</p>
+                    <form onSubmit={handlePhoneSubmit}>
+                        <input className="input is-info is-medium is-focused phone-input" type="text" placeholder="+1 XXX-XXX-XXXX"></input>
+                        <input type="submit" className="button is-medium is-success is-light is-outlined phone-input" value="Go!"></input>
+                    </form>
+                </div>
+            </div>
+        )
     }
 
     return (
@@ -26,16 +62,16 @@ const HomePage = ( {user, jobs, loadData}) => {
                             Integer fringilla justo lorem, nec dapibus ante bibendum sed. Pellentesque habitant morbi tristique 
                             senectus et netus et malesuada fames ac turpis egestas. Mauris nec suscipit elit, nec sodales orci. 
                             Vestibulum in enim ut nibh scelerisque aliquet sit amet non nisl. Suspendisse urna metus, ornare ut 
-                            lobortis eu, ultrices sodales arcu. Quisque rutrum nec augue eu iaculis. Maecenas efficitur turpis orci, 
-                            laoreet tempus elit gravida ac. Sed sed bibendum eros. Fusce in turpis lacus. Praesent ullamcorper vestibulum 
-                            sollicitudin. Morbi tempus massa vitae nisi pharetra, in cursus risus feugiat. Duis luctus a dui at aliquet. 
-                            Phasellus ac elit ut tellus convallis elementum in at nulla.</p>
+                            lobortis eu, ultrices sodales arcu.</p>
                     </div>
+                   {!user.phone_number ? displayPhoneQuestion() : null} 
                 </div>
                 <div className="column">
                     <UpcomingJobsContainer user={user} jobs={jobs} loadData={loadData}/>
+                    
                 </div>
             </div>
+            
         </div>
     )
 }
