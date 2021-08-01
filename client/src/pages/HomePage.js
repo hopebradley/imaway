@@ -4,12 +4,18 @@ import UpcomingJobsContainer from '../containers/UpcomingJobsContainer';
 
 const HomePage = ( {user, jobs, loadData}) => {
 
+    let usersName = user.name;
+
+    if (user.name) {
+        usersName = user.name.split(" ")[0];
+    }
+
     return (
         <div className="homepage">
             <div className="columns">
                 <div className="column home-left">
                     <div className="box">
-                        <h1 className="big-headline">Welcome, {user.name.split(" ")[0]}!</h1>
+                        <h1 className="home-headline">Welcome, {usersName}!</h1>
                     </div>
                     <div className="box">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget sagittis ante. Cras convallis 

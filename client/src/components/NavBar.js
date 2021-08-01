@@ -21,7 +21,7 @@ const NavBar = ({ setLoggedIn, setUser, user }) => {
       <nav className="navbar is-info is-spaced has-background-link-light" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item main-nav has-text-link" href="/">
-            <h1><strong>ImAway</strong></h1>
+            <h1 className="big-headline"><strong>ImAway</strong></h1>
           </a>
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
@@ -39,7 +39,7 @@ const NavBar = ({ setLoggedIn, setUser, user }) => {
                 <div className="logout-question">
                     <p>Not {user.name}?</p>
                 </div>
-                <button className="button is-danger" onClick={handleLogoutClick}>
+                <button className="button is-danger is-light is-outlined" onClick={handleLogoutClick}>
                   Log Out
                 </button>
               </div>

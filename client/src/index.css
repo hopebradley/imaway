@@ -25,8 +25,13 @@ code {
 }
 .big-headline {
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 900;
   color:rgb(59, 92, 201);
+}
+.home-headline {
+  font-size: 35px;
+  font-weight: 500;
+  color: black;
 }
 div {
   border-radius: 18px;
@@ -86,6 +91,7 @@ div {
   color:rgb(57, 163, 244);
   font-size: small;
   padding: 8px;
+  margin-right: 5px;;
 }
 .select-user-type button {
   margin: 2%;
@@ -167,16 +173,34 @@ div {
   text-align: center;
   width: 200px;
 }
-.profile-image {
-  width:100px;
-  height: 100px;;
-  border-radius: 50%;
-}
+
 .profile-info {
   float: left;
   margin: 5%;
   width: 95%;
-  padding: 3%;
+}
+.profile-info h1 {
+  font-size: 30px;
+}
+.profile-info h3 {
+  font-size: 20px;
+}
+.profile-info h4 {
+  font-size: 20px;
+}
+.other-profile h1 {
+  font-size: 30px;
+}
+.other-profile h3 {
+  font-size: 20px;
+}
+.other-profile h4 {
+  font-size: 20px;
+}
+.profile-info img {
+  width:100px;
+  height: 100px;;
+  border-radius: 50%;
 }
 .other-profile {
   width: 60%;
@@ -184,24 +208,42 @@ div {
   margin-top: 5%;
   text-align: center;
 }
-.profile-job {
+.upcoming-job {
   margin: 2%;
   margin-left: 0px;
   margin-bottom: 5%;
   padding: 5%;
 }
-.profile-job h3 {
+.upcoming-job p {
+  float: left;
+}
+.upcoming-job h3 {
   font-size: 20px;
 }
-.profile-jobs {
+.upcoming-job h6 {
+  color:rgb(24, 143, 48);
+  font-weight: 700;
+}
+.upcoming-jobs {
   float: right;
   width: 95%;
   margin: 5%;
   padding: 3%;
 }
-.profile-jobs h2 {
+.upcoming-jobs img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  float: left;
+  margin-right:2%;
+}
+.upcoming-jobs h2 {
   margin-left: 2%;
   font-size: 25px;
+}
+.profile-link {
+  padding: 2%;
+  width: 50%;
 }
 .alerts-page {
   margin: 5%;

@@ -67,10 +67,10 @@ const Job = ( { job, user, loadData } ) => {
 
             )
         } else {
+            const linkName = "/caregivers/"+job.caregiver_id;
             return (
                 <div className="job box">
                     <div className="column">
-
                     </div>
                     <h3>{job.title}</h3>
                     <h3>{job.category}</h3>
@@ -83,7 +83,7 @@ const Job = ( { job, user, loadData } ) => {
                         </div>
                     </div>
                     <p>${job.salary} {job.salary_type}</p>
-                    {job.caregiver ? <p>Caregiver: <strong>{job.caregiver.name}</strong></p> : <p><strong>POSITION OPEN</strong></p>}
+                    {job.caregiver ? <p>Caregiver: <strong><Link to={linkName}>{job.caregiver.name}</Link></strong></p> : <p><strong>POSITION OPEN</strong></p>}
                     <br></br>
                     <button className="button is-light is-info is-outlined">Edit Job</button>
                     <button className="button is-light is-danger is-outlined" onClick={handleDeleteButtonClick}>Delete Job</button>

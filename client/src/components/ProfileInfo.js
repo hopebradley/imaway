@@ -35,18 +35,21 @@ const ProfileInfo = ( { user, loadData }) => {
                             value={bio}
                             onChange={(e) => setBio(e.target.value)}>
                         </textarea>
-                        <input type="submit" value="DONE EDITING"></input>
+                        <br></br>
+                        <input className="button is-info is-light" type="submit" value="DONE EDITING"></input>
                     </form>
                 </div>
             )
         }
         else {
             return (
-                <div className="box">
+                <div className="box profile-info">
                     <img src={user.img_url} className="profile-image" alt="profile"></img>
+                    <br></br>
+                    <br></br>
                     <h1>{user.name}</h1>
-                    <h4>{user.status}</h4>
-                    <h3><strong>@{user.username}</strong></h3>
+                    <h3><strong>@{user.username}</strong> • <em>{user.status}</em></h3>
+                    <br></br>
                     <p>{user.bio}</p>
                     <br></br>
                     <button className="button is-info is-light is-outlined" onClick={() => setEditingProfile(true)}>EDIT PROFILE</button>
