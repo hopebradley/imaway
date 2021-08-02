@@ -6,8 +6,8 @@ const JobPage = ( { jobs, user, loadData } ) => {
 
     return (
         <div className="jobs-page">
-            <JobsContainer jobs={jobs} user={user} loadData={loadData} />
             {user.status === "employer" ? <JobForm user={user} loadData={loadData}/> : null}
+            <JobsContainer jobs={jobs} user={user} loadData={loadData} />
         </div>
     )
 }

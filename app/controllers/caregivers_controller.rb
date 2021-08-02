@@ -26,6 +26,7 @@ class CaregiversController < ApplicationController
     def update
         if current_caregiver
             current_caregiver.update(caregiver_params)
+            byebug
             if current_caregiver.valid?
                 render json: current_caregiver, status: :created
             else
@@ -48,7 +49,7 @@ class CaregiversController < ApplicationController
     private
 
     def caregiver_params
-        params.permit(:username, :password, :password_confirmation, :name, :bio, :img_url)
+        params.permit(:username, :password, :password_confirmation, :name, :bio, :img_url, :phone_number, :status)
     end
 
 end

@@ -12,8 +12,13 @@ const HomePage = ( {user, jobs, loadData}) => {
         usersName = user.name.split(" ")[0];
     }
 
-    function handlePhoneSubmit() {
-        fetch('/'+user.status+"s"+user.id, {
+    function handlePhoneSubmit(e) {
+        e.preventDefault();
+        console.log(phoneNumber);
+        // debug
+        const foo = JSON.stringify({ phone_number: phoneNumber });
+        console.log('payload:', foo)
+        fetch('/'+user.status+"s/"+user.id, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -38,7 +43,13 @@ const HomePage = ( {user, jobs, loadData}) => {
                 <div className="message-body">
                     <p>Add your phone number to your profile and recieve messages when {user.status === "caregiver" ? "you are accepted or rejected from a job!" : "someone expresses interest in one of your postings!"}</p>
                     <form onSubmit={handlePhoneSubmit}>
-                        <input className="input is-info is-medium is-focused phone-input" type="text" placeholder="+1 XXX-XXX-XXXX"></input>
+                        <input 
+                            className="input is-info is-medium is-focused phone-input" 
+                            type="text" 
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            placeholder="+1XXXXXXXXXX">
+                        </input>
                         <input type="submit" className="button is-medium is-success is-light is-outlined phone-input" value="Go!"></input>
                     </form>
                 </div>
@@ -48,6 +59,7 @@ const HomePage = ( {user, jobs, loadData}) => {
 
     return (
         <div className="homepage">
+            {console.log(user)}
             <div className="columns">
                 <div className="column home-left">
                     <div className="box">

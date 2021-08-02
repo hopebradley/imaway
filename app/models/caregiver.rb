@@ -5,8 +5,7 @@ class Caregiver < ApplicationRecord
     has_many :jobs
     has_many :employers, through: :jobs
 
-    # validates :username, presence: true, uniqueness: true, length: {minimum: 3}
-    # validates :status, inclusion: {in: %w(caregiver employer), message: "can't be blank"}
-    # validates :bio, length: {minimum: 10}
-    # validates :password, length: {minimum: 4}
+    validates :username, presence: true, uniqueness: true, length: {minimum: 3}
+    validates :bio, length: {minimum: 10}
+    validates :password, length: {minimum: 4}
 end

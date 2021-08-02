@@ -48,7 +48,7 @@ class EmployersController < ApplicationController
     private
 
     def employer_params
-        params.permit(:username, :password, :password_confirmation, :name, :bio, :img_url)
+        params.permit(:username, :password, :password_confirmation, :name, :bio, :img_url, :phone_number, :status)
     end
 
 end

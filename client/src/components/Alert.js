@@ -22,7 +22,8 @@ const Alert = ( { alert, loadData }) => {
                     contents: "has accepted your request for ",
                     sender_id: alert.receiver_id,
                     job_id: alert.job.id,
-                    receiver_id: alert.sender.id
+                    receiver_id: alert.sender.id,
+                    recipient_type: 'CAREGIVER'
                 })
             })
         })
@@ -51,7 +52,8 @@ const Alert = ( { alert, loadData }) => {
                     contents: "has rejected your request for ",
                     sender_id: thisAlert.receiver_id,
                     job_id: thisAlert.job.id,
-                    receiver_id: thisAlert.sender_id
+                    receiver_id: thisAlert.sender_id,
+                    recipient_type: 'CAREGIVER'
                 })
             });
         });

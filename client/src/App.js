@@ -8,7 +8,7 @@ import MyProfile from './pages/MyProfile';
 import OtherCaregiver from './pages/OtherCaregiver';
 import OtherEmployer from './pages/OtherEmployer';
 import JobPage from './pages/JobPage';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 
 function App() {
 
@@ -92,7 +92,7 @@ function App() {
         {/* routes for viewing others' profiles */}
         <Route exact path="/caregivers/:user_id" render={(routerProps) => <OtherCaregiver params={routerProps.match.params} loadData={loadData} caregivers={allCaregivers}/>}/>
         <Route exact path="/employers/:user_id" render={(routerProps) => <OtherEmployer params={routerProps.match.params} loadData={loadData} employers={allEmployers}/>}/>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );

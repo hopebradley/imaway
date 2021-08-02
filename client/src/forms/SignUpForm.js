@@ -38,6 +38,9 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
                 console.log(data.errors)
                 setErrors(data.errors);
                 setDataInvalid(true);
+            } else if (!data.status) {
+                setErrors(["User type must be selected!"]);
+                setDataInvalid(true);
             }
             else {
                 setUser(data);
@@ -118,7 +121,7 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
                         </input>
                     </div>    
                 </div>
-                <div className="field">
+                {/* <div className="field">
                     <label className="label">Image URL</label>
                     <div className="control">
                         <input 
@@ -130,7 +133,7 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
                             onChange={(e) => setImageUrl(e.target.value)}>
                         </input> 
                     </div>    
-                </div>
+                </div> */}
                 <div className="field">
                     <label className="label">Password</label>
                     <div className="control">
@@ -148,13 +151,13 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
                     <label className="label">Confirm Password</label>
                     <div className="control">
                         <input 
-                            className="input is-info"
+                            className="input is-info is-required"
                             id="password-confirmation"
                             type="text" 
                             value={passwordConfirmation}
                             autoComplete="off"
                             onChange={(e) => setPasswordConfirmation(e.target.value)}>
-                        </input> 
+                        </input>
                     </div>    
                 </div>
                 <input className="button is-medium is-info" type="submit" value="SIGN UP"></input>

@@ -274,18 +274,20 @@ div {
   margin-right: 2%;
   float: left;
 }
+.neutral {
+  width: 100%;
+}
 .bad {
   background-color:rgb(240, 219, 211);
 }
 .good {
   background-color:rgb(211, 240, 218);
 }
-.footer {
-  position: absolute;
+/* .footer {
   bottom: 0px;
   width: 100%;
   height: 10%;
-}
+} */
 .phone-question form {
   margin-top: 3%;
 }

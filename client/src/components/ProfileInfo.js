@@ -42,6 +42,10 @@ const ProfileInfo = ( { user, loadData }) => {
             )
         }
         else {
+            let num = user.phone_number
+            if (num) {
+                num="("+num.splice(2,5)+")"+num.splice(5,8)+"-"+num.splice(8)
+            }
             return (
                 <div className="box profile-info">
                     <img src={user.img_url} className="profile-image" alt="profile"></img>
@@ -49,6 +53,7 @@ const ProfileInfo = ( { user, loadData }) => {
                     <br></br>
                     <h1>{user.name}</h1>
                     <h3><strong>@{user.username}</strong> • <em>{user.status}</em></h3>
+                    {user.phone_number ? <p>{num}</p> : null}
                     <br></br>
                     <p>{user.bio}</p>
                     <br></br>
