@@ -135,6 +135,24 @@ div {
   border-style:solid;
   border-width: 1px;
 }
+.job h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.job h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+.job h4 {
+  font-size: 14px;
+  color:rgb(131, 131, 131);
+}
+.job p {
+  font-size: 17px;
+}
+.job .dates {
+  margin-top: 7%;
+}
 .job .button {
   margin-left: 1%;
 }
@@ -279,6 +297,10 @@ div {
   margin-left: 1%;
   width: 20%;
   border-radius: 15px;
+}
+.green-text {
+  color:rgb(24, 143, 48);
+  font-weight: 700;
 }
 /* .blog-showcase {
   margin-top: 10%;
