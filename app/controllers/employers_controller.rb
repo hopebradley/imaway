@@ -26,11 +26,11 @@ class EmployersController < ApplicationController
     def update
         if current_employer
             current_employer.update(employer_params)
-            if current_employer.valid?
-                render json: current_employer, status: :created
-            else
-                render_unprocessable_entity_response(current_employer)
-            end
+            # if current_employer.valid?
+            render json: current_employer, status: :created
+            # else
+            #     render_unprocessable_entity_response(current_employer)
+            # end
         else
             render_not_found_response
         end

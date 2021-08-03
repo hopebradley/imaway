@@ -6,8 +6,8 @@ const OtherEmployer = ( { params, loadData, employers }) => {
         const user = employers.find(c => c.id.toString() === params.user_id);
         return (
             <div className="box other-profile">
-                    <img src={user.img_url} className="profile-image" alt="profile"></img>
-                    <br></br>
+                    {/* <img src={user.img_url} className="profile-image" alt="profile"></img> */}
+                    {/* <br></br> */}
                     <br></br>
                     <h1>{user.name}</h1>
                     <h3><strong>@{user.username}</strong> • <em>{user.status}</em></h3>

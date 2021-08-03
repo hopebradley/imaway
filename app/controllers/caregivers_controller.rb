@@ -26,12 +26,11 @@ class CaregiversController < ApplicationController
     def update
         if current_caregiver
             current_caregiver.update(caregiver_params)
-            byebug
-            if current_caregiver.valid?
-                render json: current_caregiver, status: :created
-            else
-                render_unprocessable_entity_response(current_caregiver)
-            end
+            # if current_caregiver.valid?
+            render json: current_caregiver, status: :created
+            # else
+            #     render_unprocessable_entity_response(current_caregiver)
+            # end
         else
             render_not_found_response
         end
@@ -49,7 +48,7 @@ class CaregiversController < ApplicationController
     private
 
     def caregiver_params
-        params.permit(:username, :password, :password_confirmation, :name, :bio, :img_url, :phone_number, :status)
+        params.permit(:username, :password, :password_confirmation, :name, :bio, :img_url, :phone_number, :status, :id, :caregiver)
     end
 
 end

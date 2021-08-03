@@ -45,6 +45,7 @@ function App() {
     .then(resp => resp.json())
     .then(data => {
         setJobs(data);
+        console.log(jobs)
     });
   }
   const loadAlerts = () => {
@@ -52,7 +53,7 @@ function App() {
     .then(resp => resp.json())
     .then(data => {
         setAlerts(data);
-        console.log(data);
+        console.log(data)
     });
   }
   const loadCaregivers = () => {

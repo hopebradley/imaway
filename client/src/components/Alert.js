@@ -3,13 +3,14 @@ import React from 'react';
 const Alert = ( { alert, loadData }) => {
 
     function handleAcceptClick() {
+        const thisAlert = alert;
         fetch('/jobs/'+alert.job.id, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                caregiver_id: alert.sender.id
+                caregiver_id: thisAlert.sender.id
             })
         })
         .then(() => {
@@ -20,9 +21,9 @@ const Alert = ( { alert, loadData }) => {
                 },
                 body: JSON.stringify({
                     contents: "has accepted your request for ",
-                    sender_id: alert.receiver_id,
-                    job_id: alert.job.id,
-                    receiver_id: alert.sender_id,
+                    sender_id: thisAlert.receiver_id,
+                    job_id: thisAlert.job.id,
+                    receiver_id: thisAlert.sender_id,
                     recipient_type: 'CAREGIVER'
                 })
             })

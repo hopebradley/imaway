@@ -15,17 +15,19 @@ class Alert < ApplicationRecord
 
     def recipient_phone
       if employer_recipient?
-        employer_phone
+        job.employer.phone_number
       else
-        caregiver_phone
+        nil
       end
     end
+
+
 
     def alert_message_body
       if employer_recipient?
         "Hi, #{employer_first_name}! #{interested_caregiver_name} #{self.contents} your job: #{job_title}"
       else
-        "Hi, #{caregiver_first_name}! #{employer.name} #{self.contents} #{job_title}"
+        "Hi, #{caregiver_first_name}! #{job.employer.name} #{self.contents} #{job_title}"
       end
     end
     
@@ -37,35 +39,19 @@ class Alert < ApplicationRecord
         job.title
     end
 
-    def caregiver_phone
-        caregiver.phone_number
-    end
-
-    def caregiver
-        job.caregiver
-    end
-
-    def employer_phone
-        employer.phone_number
-    end
-
-    def employer
-        job.employer
-    end
-
     def interested_caregiver_name
-        if caregiver = Caregiver.find_by(id: self.sender_id)
-            caregiver.name
+        if job.caregiver = Caregiver.find_by(id: self.sender_id)
+            job.caregiver.name
         else
             ''
         end
     end
 
     def employer_first_name
-        employer.name.split(" ")[0]
+        job.employer.name.split(" ")[0]
     end
 
     def caregiver_first_name
-        caregiver.name.split(" ")[0]
+        job.caregiver.name.split(" ")[0]
     end
 end

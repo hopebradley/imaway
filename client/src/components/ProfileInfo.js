@@ -57,8 +57,8 @@ const ProfileInfo = ( { setLoggedIn, user, loadData }) => {
                     <br></br>
                     <p>{user.bio}</p>
                     <br></br>
-                    <button className="button is-info is-light is-outlined" onClick={() => setEditingProfile(true)}>EDIT PROFILE</button>
-                    <button className="button is-danger is-light is-outlined" onClick={handleDeleteProfile}>DELETE PROFILE</button>
+                    {/* <button className="button is-info is-light is-outlined" onClick={() => setEditingProfile(true)}>EDIT PROFILE</button> */}
+                    <button className="button is-danger is-light is-outlined" onClick={handleDeleteProfile}>DELETE ACCOUNT</button>
                 </div>
             )
         }

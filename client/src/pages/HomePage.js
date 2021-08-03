@@ -24,11 +24,19 @@ const HomePage = ( {user, jobs, loadData}) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                name: user.name,
                 phone_number: phoneNumber
             })
         })
-        .then(() => {
-            loadData();
+        .then((resp) => resp.json())
+        .then(data => {
+            console.log(data)
+            if (data.hasOwnProperty('errors')) {
+                console.log(data.errors)
+            } else {
+                loadData();
+                console.log(data)
+            }
         })
 
     }
@@ -59,7 +67,6 @@ const HomePage = ( {user, jobs, loadData}) => {
 
     return (
         <div className="homepage">
-            {console.log(user)}
             <div className="columns">
                 <div className="column home-left">
                     <div className="box">

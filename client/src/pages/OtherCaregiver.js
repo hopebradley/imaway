@@ -6,7 +6,7 @@ const OtherCaregiver = ( { params, loadData, caregivers}) => {
         const user = caregivers.find(c => c.id.toString() === params.user_id);
         return (
             <div className="box other-profile">
-                    <img src={user.img_url} className="profile-image" alt="profile"></img>
+                    {/* <img src={user.img_url} className="profile-image" alt="profile"></img> */}
                     <br></br>
                     <br></br>
                     <h1>{user.name}</h1>

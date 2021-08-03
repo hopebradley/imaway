@@ -5,9 +5,7 @@ const AlertsContainer = ( { alerts, job, user, loadData }) => {
 
 
     function displayAlerts() { 
-        console.log(alerts)
         if (!job) {
-            console.log(alerts)
             const usersAlerts = alerts.filter(a => a.receiver_id == user.id && a.recipient_type == user.status.toUpperCase());
             if (usersAlerts.length > 0) {
                 return usersAlerts.map(a => <Alert key={a.id} alert={a} loadData={loadData}/>);

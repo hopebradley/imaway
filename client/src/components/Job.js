@@ -67,8 +67,6 @@ const Job = ( { job, user, loadData } ) => {
     const end = job.date.split("-")[1];
 
     function displayJob() {
-        console.log(job);
-
         if (user.status === "caregiver") {
             const linkName = "/employers/"+job.employer.id;
             return (
