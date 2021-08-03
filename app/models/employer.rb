@@ -5,7 +5,8 @@ class Employer < ApplicationRecord
     has_many :jobs
     has_many :caregivers, through: :jobs
 
-    validates :username, presence: true, uniqueness: true, length: {minimum: 3}
-    validates :bio, length: {minimum: 10}
+    validates :name, presence: true
+    validates :username, uniqueness: true, length: {minimum: 3}
+    validates :bio, length: {minimum: 5}
     validates :password, length: {minimum: 4}
 end
