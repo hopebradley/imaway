@@ -27,6 +27,7 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
             .then(data => {
                 if (data.hasOwnProperty('errors')) {
                    setLoggedIn(false);
+                   setNoRoleChecked(false);
                    setDataInvalid(true);
                    setErrors(data.errors);
                    console.log(data);

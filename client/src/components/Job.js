@@ -17,7 +17,7 @@ const Job = ( { job, user, loadData } ) => {
     // const [ newSalaryType, setNewSalaryType ] = useState("Select One");
     // const [ newJobDate, setNewJobDate ] = useState(job.date)
 
-    function handleInterestButtonClick() {
+    function handleInterestButtonClick(e) {
         console.log("Hi")
         console.log(job.employer.id)
         fetch('/alerts', {
@@ -36,6 +36,7 @@ const Job = ( { job, user, loadData } ) => {
         .then(resp => resp.json())
         .then((data) => {
             if (!data.hasOwnProperty('errors')) {
+                e.target.classList.add('is-light')
                 setInterestButtonText("We'll let the employer know.")
                 loadData();
             } else {
@@ -91,9 +92,9 @@ const Job = ( { job, user, loadData } ) => {
                                 <p><strong>Ends:</strong> {end}</p>
                             </div>
                             <br></br>
-                            {user.status === "caregiver" ? <button className="button is-info" onClick={handleInterestButtonClick}>{interestButtonText}</button> : null}
                         </div>
                     </div>
+                    {user.status === "caregiver" ? <button className="button is-info" onClick={handleInterestButtonClick}>{interestButtonText}</button> : null}
                 </div>
 
             )

@@ -7,6 +7,7 @@ const UpcomingJobsContainer = ( {user, jobs, loadData} ) => {
     const employerJobs = jobs.filter(j => j.employer_id = user.id && j.caregiver_id);
 
     function displayProfileJobs() {
+        console.log(jobs)
         if (user.status === "caregiver") {
             return (
                 <div>

@@ -1,3 +1,3 @@
 class CaregiverSerializer < ActiveModel::Serializer
-  attributes :id, :username, :password_digest, :name, :bio, :img_url, :status
+  attributes :id, :username, :password_digest, :name, :bio, :img_url, :status, :phone_number
 end

@@ -51,12 +51,6 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
         } 
     }
 
-    // function displayErrors() {
-    //     return errors.map((e) => {
-    //         return <p>-{e}</p>
-    //     })
-    // }
-
     function handleButtonChange(e) {
         e.preventDefault();
         setSelectedUserType(e.target.value);

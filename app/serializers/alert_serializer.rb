@@ -1,6 +1,6 @@
 class AlertSerializer < ActiveModel::Serializer
   belongs_to :job
-  attributes :id, :contents, :job_id, :sender_id, :receiver_id, :sender, :receiver, :job
+  attributes :id, :contents, :job_id, :sender_id, :receiver_id, :sender, :receiver, :job, :recipient_type
 
   def job
     Job.find_by(id: object.job_id)
@@ -15,7 +15,7 @@ class AlertSerializer < ActiveModel::Serializer
   end
 
   def receiver
-    if Caregiver.find_by(id: object.receiver_id)
+    if object.recipient_type === 'CAREGIVER'
       Caregiver.find_by(id: object.receiver_id)
     else
       Employer.find_by(id: object.receiver_id)

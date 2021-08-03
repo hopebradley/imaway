@@ -4,7 +4,7 @@ class Alert < ApplicationRecord
     after_create :send_sms
 
     def send_sms
-       Sms.new(to: recipient_phone, body: alert_message_body).send
+       Sms.new(to: recipient_phone, body: alert_message).send
     end
 
     def employer_recipient?
@@ -21,10 +21,14 @@ class Alert < ApplicationRecord
 
     def alert_message_body
       if employer_recipient?
-        "#{interested_caregiver_name} is interested in your job #{job_title}"
+        "Hi, #{employer_first_name}! #{interested_caregiver_name} #{self.contents} your job: #{job_title}"
       else
-        "#{employer.name} #{self.contents} #{job_title}"
+        "Hi, #{caregiver_first_name}! #{employer.name} #{self.contents} #{job_title}"
       end
+    end
+    
+    def alert_message
+        "ImAway Alerts: \n -- \n"+alert_message_body
     end
 
     def job_title
@@ -53,5 +57,13 @@ class Alert < ApplicationRecord
         else
             ''
         end
+    end
+
+    def employer_first_name
+        employer.name.split(" ")[0]
+    end
+
+    def caregiver_first_name
+        caregiver.name.split(" ")[0]
     end
 end

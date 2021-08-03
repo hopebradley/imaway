@@ -87,7 +87,7 @@ function App() {
 
         <Route exact path="/" render={() => <HomePage user={user}jobs={jobs} loadData={loadData} />}/>
         <Route exact path="/jobs" render={() => <JobPage jobs={jobs} user={user} loadData={loadData} alerts={alerts}/>}/>
-        <Route exact path="/profile" render={() => <MyProfile user={user} jobs={jobs} loadData={loadData} alerts={alerts}/>}/>
+        <Route exact path="/profile" render={() => <MyProfile user={user} jobs={jobs} loadData={loadData} alerts={alerts} setLoggedIn={setLoggedIn}/>}/>
 
         {/* routes for viewing others' profiles */}
         <Route exact path="/caregivers/:user_id" render={(routerProps) => <OtherCaregiver params={routerProps.match.params} loadData={loadData} caregivers={allCaregivers}/>}/>

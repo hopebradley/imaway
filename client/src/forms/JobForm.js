@@ -15,6 +15,9 @@ const JobForm = ( { user, loadData }) => {
   const [ salaryType, setSalaryType ] = useState("Select One");
   const [ jobDate, setJobDate ] = useState("")
 
+  const [dataInvalid, setDataInvalid] = useState(false);
+  const [errors, setErrors] = useState([]);
+
   function handleClick() {
     setCreatingJob(true);
   }
@@ -42,9 +45,14 @@ const JobForm = ( { user, loadData }) => {
     })
     .then(resp => resp.json())
     .then((data) => {
-      console.log(data)
-      setCreatingJob(false);
-      loadData();
+      if (data.hasOwnProperty('errors')) {
+        setDataInvalid(true);
+        setErrors(data.errors);
+      } else {
+        console.log(data)
+        setCreatingJob(false);
+        loadData();
+      }
     })
   }
 
@@ -133,6 +141,7 @@ const JobForm = ( { user, loadData }) => {
                 </div>
               </div>     
             </div>
+            {dataInvalid ? <div className="errors"><h3>Uh oh!</h3>{errors.map((e) => <p>• {e}</p> )}</div> : null}
             <input className="button is-success is-light is-outlined" type="submit"></input>
             <button className="button is-danger is-outlined" onClick={()=>setCreatingJob(false)}>Cancel</button>
           </form>

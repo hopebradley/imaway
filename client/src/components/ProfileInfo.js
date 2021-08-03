@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ProfileInfo = ( { user, loadData }) => {
+const ProfileInfo = ( { setLoggedIn, user, loadData }) => {
 
     const [ editingProfile, setEditingProfile ] = useState(false);
     const [ name, setName ] = useState(user.name);
@@ -42,9 +42,9 @@ const ProfileInfo = ( { user, loadData }) => {
             )
         }
         else {
-            let num = user.phone_number
-            if (num) {
-                num="("+num.splice(2,5)+")"+num.splice(5,8)+"-"+num.splice(8)
+            let num;
+            if (user.phone_number) {
+                num="("+user.phone_number.substr(2,3)+") "+user.phone_number.substr(5,3)+"-"+user.phone_number.substr(8)
             }
             return (
                 <div className="box profile-info">
@@ -58,9 +58,17 @@ const ProfileInfo = ( { user, loadData }) => {
                     <p>{user.bio}</p>
                     <br></br>
                     <button className="button is-info is-light is-outlined" onClick={() => setEditingProfile(true)}>EDIT PROFILE</button>
+                    <button className="button is-danger is-light is-outlined" onClick={handleDeleteProfile}>DELETE PROFILE</button>
                 </div>
             )
         }
+    }
+
+    function handleDeleteProfile() {
+        fetch('/'+user.status+"s/"+user.id, {
+            method: "DELETE",
+        })
+        .then(() => setLoggedIn(false));
     }
 
     function handleSubmit(e) {

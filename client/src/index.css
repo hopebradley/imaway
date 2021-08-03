@@ -117,6 +117,10 @@ div {
   margin-top: 5%;
   margin-bottom: 2%;
 }
+.job button {
+  width: 100%;
+  margin: auto;
+}
 .job-list h1 {
   font-size: 200%;
   font-weight: 800;
@@ -127,7 +131,7 @@ div {
   font-weight: 800;
 }
 .job {
-  width: 46%;
+  width: 40%;
   float: left;
   margin: 2%;
   padding: 2%;
@@ -155,6 +159,12 @@ div {
 }
 .job .button {
   margin-left: 1%;
+}
+.errors {
+  background-color: rgb(255, 235, 235);
+  border-radius: 20px;
+  width: 70%;
+  margin:auto;
 }
 .job-form {
   margin: 10%;
@@ -196,6 +206,9 @@ div {
   float: left;
   margin: 5%;
   width: 95%;
+}
+.profile-info button {
+  margin-right: 2%;
 }
 .profile-info h1 {
   font-size: 30px;
@@ -274,8 +287,8 @@ div {
   margin-right: 2%;
   float: left;
 }
-.neutral {
-  width: 100%;
+.job .alert {
+  width: 90%;
 }
 .bad {
   background-color:rgb(240, 219, 211);
