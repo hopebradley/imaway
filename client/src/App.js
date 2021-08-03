@@ -52,6 +52,7 @@ function App() {
     .then(resp => resp.json())
     .then(data => {
         setAlerts(data);
+        console.log(data);
     });
   }
   const loadCaregivers = () => {

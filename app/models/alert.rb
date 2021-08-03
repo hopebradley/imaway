@@ -4,7 +4,9 @@ class Alert < ApplicationRecord
     after_create :send_sms
 
     def send_sms
-       Sms.new(to: recipient_phone, body: alert_message).send
+        if recipient_phone
+            Sms.new(to: recipient_phone, body: alert_message).send
+        end
     end
 
     def employer_recipient?

@@ -22,10 +22,11 @@ const Alert = ( { alert, loadData }) => {
                     contents: "has accepted your request for ",
                     sender_id: alert.receiver_id,
                     job_id: alert.job.id,
-                    receiver_id: alert.sender.id,
+                    receiver_id: alert.sender_id,
                     recipient_type: 'CAREGIVER'
                 })
             })
+            console.log("an alert was posted")
         })
         .then(() => {
             fetch('/alerts/'+alert.id, {

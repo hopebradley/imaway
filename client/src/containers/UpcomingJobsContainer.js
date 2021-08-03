@@ -4,7 +4,7 @@ import UpcomingJob from '../components/UpcomingJob';
 const UpcomingJobsContainer = ( {user, jobs, loadData} ) => {
 
     const caregiverJobs = jobs.filter(j => j.caregiver_id === user.id);
-    const employerJobs = jobs.filter(j => j.employer_id = user.id && j.caregiver_id);
+    const employerJobs = jobs.filter(j => j.employer_id == user.id && j.caregiver_id);
 
     function displayProfileJobs() {
         console.log(jobs)
