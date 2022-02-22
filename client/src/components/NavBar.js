@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({ setLoggedIn, setUser, user }) => {
 
@@ -20,18 +21,18 @@ const NavBar = ({ setLoggedIn, setUser, user }) => {
     <div>
       <nav className="navbar is-info is-spaced has-background-link-light" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-item main-nav has-text-link" href="/">
+          <Link className="navbar-item main-nav has-text-link" to="/">
             <h1 className="big-headline"><strong>ImAway</strong></h1>
-          </a>
+          </Link>
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item small-nav has-text-info" href="/jobs">
+            <Link className="navbar-item small-nav has-text-info" to="/jobs">
               {jobLinkName}
-            </a>
-            <a className="navbar-item small-nav has-text-info" href="/profile">
+            </Link>
+            <Link className="navbar-item small-nav has-text-info" to="/profile">
               My Profile
-            </a>
+            </Link>
           </div>
           <div className="navbar-end">
             <div className="navbar-item">

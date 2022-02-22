@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SignUpForm from '../forms/SignUpForm';
 import LoginForm from '../forms/LoginForm';
 
-const LoginPage = ( { setUser, setLoggedIn }) => {
+const LoginPage = ( { loggedIn, setUser, setLoggedIn }) => {
 
     const [ hasAccount, setHasAccount ] = useState(true);
 
@@ -34,11 +34,15 @@ const LoginPage = ( { setUser, setLoggedIn }) => {
     }
 
 
+    if (!loggedIn) {
+        return (
+            <div className="box login-page">
+                {showLoginOrSignup()}
+            </div>
+        )
 
-    return (
-        <div className="box login-page">
-            {showLoginOrSignup()}
-        </div>
-    )
+    } else {
+        return null;
+    }
 }
 export default LoginPage;
