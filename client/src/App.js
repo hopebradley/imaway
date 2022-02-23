@@ -20,7 +20,7 @@ function App() {
   const [ alerts, setAlerts ] = useState([]);
 
   const loadUser = () => {
-    fetch('/employer')
+    fetch('https://imaway.herokuapp.com/employer')
     .then(resp => {
       if (resp.ok) {
         resp.json().then(data => {
@@ -28,7 +28,7 @@ function App() {
           setUser(data);
         }); 
       } else {
-        fetch('/caregiver')
+        fetch('https://imaway.herokuapp.com/caregiver')
         .then(resp => {
           if (resp.ok) {
             resp.json().then(data => {
@@ -41,7 +41,7 @@ function App() {
     });
   }
   const loadJobs = () => {
-    fetch('/jobs')
+    fetch('https://imaway.herokuapp.com/jobs')
     .then(resp => resp.json())
     .then(data => {
         setJobs(data);
@@ -49,7 +49,7 @@ function App() {
     });
   }
   const loadAlerts = () => {
-    fetch('/alerts')
+    fetch('https://imaway.herokuapp.com/alerts')
     .then(resp => resp.json())
     .then(data => {
         setAlerts(data);
@@ -57,12 +57,12 @@ function App() {
     });
   }
   const loadCaregivers = () => {
-    fetch('/caregivers')
+    fetch('https://imaway.herokuapp.com/caregivers')
     .then(resp => resp.json())
     .then(data => setAllCaregivers(data));
   }
   const loadEmployers = () => {
-    fetch('/employers')
+    fetch('https://imaway.herokuapp.com/employers')
     .then(resp => resp.json())
     .then(data => setAllEmployers(data));
   }

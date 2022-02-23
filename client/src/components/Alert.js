@@ -4,7 +4,7 @@ const Alert = ( { alert, loadData }) => {
 
     function handleAcceptClick() {
         const thisAlert = alert;
-        fetch('/jobs/'+alert.job.id, {
+        fetch('https://imaway.herokuapp.com/jobs/'+alert.job.id, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -14,7 +14,7 @@ const Alert = ( { alert, loadData }) => {
             })
         })
         .then(() => {
-            fetch('/alerts', {
+            fetch('https://imaway.herokuapp.com/alerts', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -30,7 +30,7 @@ const Alert = ( { alert, loadData }) => {
             console.log("an alert was posted")
         })
         .then(() => {
-            fetch('/alerts/'+alert.id, {
+            fetch('https://imaway.herokuapp.com/alerts/'+alert.id, {
                 method: "DELETE"
             })
             .then(() => loadData());
@@ -39,13 +39,13 @@ const Alert = ( { alert, loadData }) => {
 
     function handleRejectClick() {
         const thisAlert = alert;
-        fetch('/alerts/'+alert.id, {
+        fetch('https://imaway.herokuapp.com/alerts/'+alert.id, {
             method: "DELETE"
         })
         .then(() => loadData())
         .then(() => {
             console.log("this is posting")
-            fetch('/alerts', {
+            fetch('https://imaway.herokuapp.com/alerts', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -62,7 +62,7 @@ const Alert = ( { alert, loadData }) => {
     }
 
     function handleClearClick() {
-        fetch('/alerts/'+alert.id, {
+        fetch('https://imaway.herokuapp.com/alerts/'+alert.id, {
             method: "DELETE"
         })
         .then(() => loadData());
