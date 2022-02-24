@@ -13,7 +13,7 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
     function handleSubmit(e) {
         e.preventDefault();
         if (selectedUserType !== "") {
-            fetch("/"+selectedUserType+"-login", {
+            fetch("https://imaway.herokuapp.com/"+selectedUserType+"-login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

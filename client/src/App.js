@@ -62,7 +62,7 @@ function App() {
     .then(data => setAllCaregivers(data));
   }
   const loadEmployers = () => {
-    fetch('https://imaway.herokuapp.com/employers')
+    fetch('/employers')
     .then(resp => resp.json())
     .then(data => setAllEmployers(data));
   }
