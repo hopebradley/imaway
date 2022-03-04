@@ -4,7 +4,7 @@
 
 ImAway is a simple interface that allows for the scheduling of jobs between employers and caregivers. 
 
-## Installation
+<!-- ## Installation
 
 After forking and cloning this repository, run:
 
@@ -28,7 +28,7 @@ To start the frontend on [https://localhost:4000], run:
 
 Running 
 ### `rails start` 
-will run the frontend and backend together with one command.
+will run the frontend and backend together with one command. -->
 
 ## Use
 
