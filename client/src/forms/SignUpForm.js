@@ -20,7 +20,8 @@ const SignUpForm = ({ setUser, setLoggedIn }) => {
             fetch("/"+selectedUserType+"s", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "https://imaway.netlify.app/"
                 },
                 body: JSON.stringify({
                     username: username.toLowerCase(),

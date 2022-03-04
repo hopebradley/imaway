@@ -16,7 +16,8 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
             fetch("https://imaway.herokuapp.com/"+selectedUserType+"-login", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "https://imaway.netlify.app/"
                 },
                 body: JSON.stringify({
                     username: username,
