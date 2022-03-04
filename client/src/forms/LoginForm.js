@@ -17,7 +17,7 @@ const LoginForm = ( { setUser, setLoggedIn }) => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "https://imaway.netlify.app/"
+                    "Access-Control-Allow-Origin": "*"
                 },
                 body: JSON.stringify({
                     username: username,
